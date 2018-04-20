@@ -1,0 +1,43 @@
+# i3status configuration file
+
+general {
+	output_format = "i3bar"
+	colors    = true
+	interval  = 2
+}
+
+order += "wireless iwn0"
+order += "ethernet re0"
+order += "battery 0"
+order += "volume master"
+order += "tztime local"
+
+wireless iwn0 {
+	format_up   = " W: %ip "
+	format_down = " W: down "
+}
+
+ethernet re0 {
+	format_up   = " E: %ip "
+	format_down = " E: down "
+}
+
+battery 0 {
+	format = "%status %percentage %remaining "
+	path   = "/sys/class/power_supply/BAT1/uevent"
+	status_chr  = " ⚇ CHR"
+	status_bat  = " ⚡ BAT"
+	status_full = " ☻ FULL"
+	hide_seconds = true
+	integer_battery_capacity = true
+}
+
+volume master {
+	format = " ♪ %volume "
+	device = "default"
+	mixer  = "Master"
+}
+
+tztime local {
+	format = " ⌚ %H:%M %d-%m-%y "
+}

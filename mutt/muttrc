@@ -1,0 +1,95 @@
+#
+# TODO
+# - folders, mailboxes organization
+# - contact management
+#   * autocomplete from email and from name
+# - full-text search
+# - patterns
+#
+
+set realname = "Guilherme Salazar"
+set envelope_from = yes
+set sig_dashes = no
+
+set editor = "vim"
+set charset = "utf-8"
+set record = ''
+set smtp_authenticators = 'gssapi:login'
+
+set sort=threads
+set strict_threads="yes"
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+set date_format = "%T %D"
+set index_format = "%4C %Z %?X?A&-? %D  %-15.15L  %s"
+set folder_format="%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f"
+
+set pager_stop=yes
+set pager_context=3
+set pager_index_lines = 10
+
+set menu_scroll=no
+set markers=no
+
+set fast_reply=yes
+set forward_format = "Fwd: %s"
+set forward_decode=yes
+set attribution = "On %d, %n wrote:"
+set reply_to=yes
+set include=yes
+set wait_key=no
+set forward_quote=yes
+
+set header_cache = ~/.cache/mutt/headers
+set message_cachedir = ~/.cache/mutt/bodies
+set mailcap_path = ~/.mutt/mailcap
+set certificate_file = ~/.mutt/certificates
+
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set timeout=10
+set mail_check=0
+set delete=ask-yes
+set beep_new=yes
+
+set display_filter="sed -e '/\\[-- Autoview using .* --\\]/d'"
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+
+folder-hook 'personal' 'source ~/.mutt/personalrc'
+folder-hook 'work' 'source ~/.mutt/workrc'
+
+macro index p '<sync-mailbox><enter-command>source ~/.mutt/personalrc<enter><change-folder>!<enter>'
+macro index w '<sync-mailbox><enter-command>source ~/.mutt/workrc<enter><change-folder>!<enter>'
+macro index c '<change-folder>?<change-dir><home>^K=<enter>'
+
+bind index gg first-entry
+bind index G  last-entry
+bind index N search-opposite
+
+bind pager k  previous-line
+bind pager j  next-line
+bind pager N search-opposite
+
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
+set edit_headers=yes
+set use_envelope_from=yes
+
+# default account
+source ~/.mutt/personalrc
+
+source ~/.mutt/gpg.rc
+
+set pgp_use_gpg_agent = yes
+set pgp_sign_as=0xF4CAC49A
+set pgp_replyencrypt       # now crypt_replyencrypt
+set pgp_replysign          # now crypt_replysign
+set pgp_replysignencrypted # now crypt_replysignencrypted
+set pgp_show_unusable=no
+
+source ~/.mutt/sidebar.rc
+
+set sidebar_visible=no
+set sidebar_width = 30
+set sidebar_short_path = yes

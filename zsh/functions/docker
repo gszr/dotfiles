@@ -1,0 +1,15 @@
+# vim: filetype=zsh
+# some git-related functions
+
+function ds {
+  if [[ -z $1 ]]; then
+    echo "Needs image name"
+    return
+  fi
+  local image=$1
+
+  local page=1
+  while curl "https://registry.hub.docker.com/v2/repositories/library/$image/tags/?page=$page" 2>/dev/null | jq '."results"[]["name"]' 2> /dev/null; do
+    page=$((page+1))
+  done
+}

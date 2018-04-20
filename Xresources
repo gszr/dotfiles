@@ -1,0 +1,61 @@
+! X colors
+#include "Xresources.dark"
+
+! urxvt
+URxvt*depth:             32
+URxvt*transparent:       false
+URxvt*fading:            0
+URxvt*borderless:        true
+URxvt*scrollBar_right:   true
+URxvt*scrollBar:         false
+URxvt*scrollstyle:       plain
+URxvt*scrollTtyOutput:   false
+URxvt*scrollWithBuffer:  true
+URxvt*scrollTtyKeypress: true
+URxvt*saveLines:         32767
+URxvt*intensityStyles:   false
+URxvt*secondaryWheel:    1
+URxvt*lineSpace:         1
+URxvt*letterSpace:      -1
+URxvt.iso14755:          false
+URxvt.iso14755_52:       false
+
+! urxvt fonts
+URxvt*font:           xft:DejaVu Sans Mono:pixelsize=14
+URxvt*boldFont:       xft:DejaVu Sans Mono:bold:pixelsize=14
+URxvt*italicFont:     xft:DejaVu Sans Mono:italic:pixelsize=14
+URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:pixelsize=14
+
+! urxvt keybindings
+URxvt.keysym.S-Up:    \033[1;2A
+URxvt.keysym.S-Down:  \033[1;2B
+URxvt.keysym.S-Right: \033[1;2C
+URxvt.keysym.S-Left:  \033[1;2D
+URxvt.keysym.C-Up:    \033[1;5A
+URxvt.keysym.C-Down:  \033[1;5B
+URxvt.keysym.C-Right: \033[1;5C
+URxvt.keysym.C-Left:  \033[1;5D
+URxvt.keysym.C-Home:  \033[1;5H
+URxvt.keysym.C-End:   \033[1;5F
+
+! urxvt extensions
+URxvt.perl-ext-common: default,matcher,fork-here,font-size
+URxvt.matcher.button:  1
+URxvt.url-launcher:    firefox
+
+URxvt.keysym.S-M-Return:   perl:fork-here:fork-at-cwd
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+
+! Xft
+Xft.antialias: true
+Xft.autohint:  false
+Xft.dpi:       96
+Xft.hinting:   true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb

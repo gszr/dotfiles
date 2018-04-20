@@ -1,0 +1,19 @@
+# defaults
+
+defaults
+host smtp.gmail.com
+port 587
+protocol smtp
+auth on
+tls on
+tls_trust_file /usr/local/etc/openssl/cert.pem
+
+# personal
+account personal
+user <user>
+passwordeval <password>
+
+# work
+account work
+user <user>
+passwordeval <password>

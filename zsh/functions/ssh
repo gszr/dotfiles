@@ -1,0 +1,18 @@
+# vim: filetype=zsh
+# some ssh-related functions
+
+function is_ssh_session {
+  test -n "$SSH_CLIENT" -o -n "$SSH_TTY"
+}
+
+function get_ssh_addr {
+  local host=$(echo $SSH_CONNECTION | awk '{print $3}')
+  local port=$(echo $SSH_CONNECTION | awk '{print $4}')
+  echo "$host:$port"
+}
+
+function ssh_get_info {
+  if is_ssh_session; then
+    echo "(ssh session) "
+  fi
+}

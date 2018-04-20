@@ -1,0 +1,32 @@
+[user]
+	email = gsz@acm.org
+	name = Guilherme Salazar
+	signingkey = gsz@acm.org
+
+[alias]
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
+	clean-all = "!git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin && git reflog expire --expire=now --all && git gc --prune=now"
+
+[merge]
+	conflictstyle = diff3
+
+[push]
+	default = simple
+
+[core]
+	editor = vim
+	excludesfile = /Users/gs/.gitignore_global
+	precomposeUnicode = true
+
+[diff]
+	tool = vimdiff
+
+[pager]
+	log = false
+
+[status]
+	showUntrackedFiles = all
+
+#[url "git@github.com:"]
+#	insteadOf = https://github.com/

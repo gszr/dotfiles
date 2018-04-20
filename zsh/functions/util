@@ -1,0 +1,39 @@
+# vim: filetype=zsh
+# utilities
+
+# adapted from https://gist.github.com/felipou/6fbec22c4e04d3adfae5
+function retry {
+  local sleep=30
+  local retry=10
+
+  while [[ $# -gt 1 ]]; do
+    key=$1
+    case $key in
+      -s|--sleep)
+        sleep=$2
+        shift
+        ;;
+      -r|--retries)
+        retry=$2
+        shift
+        ;;
+    esac
+    shift
+  done
+
+  local cmd="$@"
+  local cnt=1
+
+  eval $cmd
+
+  while [[ $? -ne 0 ]] && [[ $cnt -lt $retry ]]; do
+    echo "Command failed. Retrying in $sleep seconds..."
+    sleep $sleep
+    cnt=$(($cnd + 1))
+    eval $cmd
+  done
+
+  if [[ $cnt -eq $retry ]]; then
+    echo "Max retries reached; giving up."
+  fi
+}

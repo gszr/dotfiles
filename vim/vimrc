@@ -1,0 +1,123 @@
+" Setup
+set nocompatible
+scriptencoding utf-8
+filetype plugin on
+filetype plugin indent on
+
+" Backup
+set swapfile
+set dir=~/.vim/swap
+set nobackup
+
+" General
+set clipboard=unnamedplus
+set mouse=a
+set ttyfast
+set splitright
+set backspace=2
+set colorcolumn=81
+set showcmd
+set number
+set relativenumber
+set title
+set ruler
+set nowrap
+set spell spelllang=en_us,pt
+set nofoldenable
+
+" Search
+set ignorecase
+set smartcase
+set noincsearch
+set hlsearch
+
+" Visual
+set list
+set listchars=eol:¬,tab:▸\ 
+set hidden
+set smarttab
+set wildmenu
+set showmatch
+set autoindent
+set cursorline
+set smartindent
+set noexpandtab
+set shiftwidth=4
+set softtabstop=0
+set tabstop=4
+set t_Co=256
+set laststatus=1
+set statusline=%f%h%m%r%=%{mode()},%c,%l/%L
+syntax on
+
+if $SOLARIZED == "dark"
+	set background=dark
+else
+	set background=light
+endif
+
+if has("mac")
+	set background=dark
+	set guifont=Monaco:h14
+	set clipboard=unnamed
+endif
+
+colorscheme solarized
+
+" Keybindings
+cmap w!! w !sudo tee > /dev/null %
+imap <M-q> <ESC>
+nmap \1 :1b <CR>
+nmap \2 :2b <CR>
+nmap \3 :3b <CR>
+nmap \4 :4b <CR>
+nmap \5 :5b <CR>
+nmap \6 :6b <CR>
+nmap \7 :7b <CR>
+nmap \8 :8b <CR>
+nmap \9 :9b <CR>
+map \h :noh<CR>
+map \i :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+map \f gg=G\i
+
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path': '~/code/wiki'}]
+let g:vimwiki_global_ext = 0
+let g:vimwiki_folding=''
+
+let g:instant_markdown_autostart = 0
+
+autocmd VimEnter * call togglebg#map("<F5>")
+
+" Per-language indentation behavior
+autocmd FileType c   setlocal cinoptions=t0 cindent
+autocmd FileType sh  setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType coq call coquille#FNMapping()
+autocmd FileType lua setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType zsh setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType lex setlocal expandtab shiftwidth=4 tabstop=4
+autocmd FileType tex setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType yacc setlocal expandtab shiftwidth=4 tabstop=4
+autocmd FileType html setlocal expandtab shiftwidth=4 tabstop=4
+autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType conf setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType perl setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType nginx setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType markdown setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType vimwiki setlocal expandtab shiftwidth=2 tabstop=2
+
+let g:markdown_fold_override_foldtext = 0
+let g:markdown_fold_style = 'nested'
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
+set title
+set titleold=""
+set titlestring=vim
+

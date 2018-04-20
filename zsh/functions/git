@@ -1,0 +1,46 @@
+# vim: filetype=zsh
+# some git-related functions
+
+function git_is_repo() {
+  #test -z "$(git status 2>&1 | grep -i "not a git repository")"
+  git status &> /dev/null
+}
+
+function git_is_dirty() {
+  git status | grep "Untracked\|not staged" &> /dev/null
+}
+
+function git_not_staged() {
+  git diff --quiet --cached
+}
+
+function git_get_status() {
+  if ! git_not_staged; then
+    echo "staged"
+    return
+  fi
+  if git_is_dirty; then
+    echo "dirty"
+    return
+  else
+    echo "clean"
+    return
+  fi
+}
+
+function git_num_ahead() {
+  local branch=$(git_get_branch)
+  local ahead=$(git rev-list --count origin/$branch..$branch 2>/dev/null)
+  if [[ $ahead -gt 0 ]]; then
+    echo ":$ahead"
+  fi
+}
+
+function git_get_branch() {
+  echo $(git branch | grep "^\*" | cut -d ' ' -f2)
+}
+
+function git_get_info() {
+  echo "(git:$(git_get_branch):$(git_get_status)$(git_num_ahead))"
+}
+

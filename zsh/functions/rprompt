@@ -1,0 +1,7 @@
+# vim: filetype=zsh
+
+function zsh_get_rprompt() {
+  if git_is_repo; then
+    echo $(git_get_info)
+  fi
+}
