@@ -4,9 +4,8 @@ zstyle ':completion:*:complete:*make:*:variables' hidden yes
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu select
 
-if [[ -n $ITERM_SESSION_ID ]]; then
-  . ~/.zprofile
-fi
+# TODO review this in the future
+. ~/.zprofile
 
 autoload -Uz history-search-end
 autoload -Uz compinit && compinit
