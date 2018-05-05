@@ -27,6 +27,8 @@ export PATH
 
 DEV="$HOME/Code"
 
+export WIKI=$DEV/misc/wiki
+
 # RVM
 if [[ -d $HOME/.rvm ]]; then
   export PATH="$PATH:$HOME/.rvm/bin"
@@ -36,6 +38,9 @@ fi
 # Go
 export GOPATH="$DEV/go"
 export PATH="$PATH:$GOPATH/bin"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # OpenResty
 if [[ "$OSTYPE" = "darwin"* ]]; then
