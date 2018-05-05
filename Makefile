@@ -8,7 +8,7 @@ CFG += i3 xinitrc Xresources imwheelrc
 
 # vim plugins
 .if !defined(VIM)
-VIM  = https://github.com/salazar/vim-colors-solarized
+VIM  = https://github.com/altercation/vim-colors-solarized
 VIM += https://github.com/vimwiki/vimwiki
 .endif
 
