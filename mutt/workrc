@@ -8,6 +8,7 @@ set postponed = "+[Gmail]/Drafts"
 set record = "+[Gmail]/Sent Mail"
 set trash = "+[Gmail]/Trash"
 set mbox = "+[Gmail]/All Mail"
+set from = "gs@konghq.com"
 
 unmailboxes *
 mailboxes +Inbox +[Gmail]/Drafts +[Gmail]/Sent\ Mail +[Gmail]/Trash +[Gmail]/All\ Mail
