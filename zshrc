@@ -93,11 +93,9 @@ alias clipout='xclip -out -selection clipboard'
 alias coqtop='rlwrap coqtop'
 alias luajit='rlwrap luajit'
 alias https='http --default-scheme=https'
-alias pgp='gpg'
 alias dm='docker-machine'
 alias dc='docker-compose'
 alias m='mbsync -a'
-alias vi='vim '
 
 # Enable editing the buffer past the point where
 # insert mode was activated
