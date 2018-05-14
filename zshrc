@@ -7,10 +7,9 @@ zstyle ':completion:*' menu select
 # TODO review this in the future
 . ~/.zprofile
 
-autoload -Uz history-search-end
 autoload -Uz compinit && compinit
-autoload -Uz select-word-style && select-word-style bash
 autoload -Uz colors && colors
+autoload -Uz select-word-style && select-word-style bash
 
 # History
 HISTSIZE=10000
@@ -24,7 +23,7 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_VERIFY
 setopt PROMPT_SUBST
 
-# Dir stack -- should I persist those? :)
+# Dir stack
 DIRSTACKSIZE=10
 setopt AUTO_PUSHD
 
@@ -34,7 +33,7 @@ setopt AUTO_PUSHD
 
 # MacOS
 if [[ "$(uname -s)" = "Darwin" ]]; then
-  alias ls='ls -G'
+  alias ls='gls --color'
 fi
 
 # NetBSD - pkgsrc/misc/colorls
@@ -44,7 +43,7 @@ fi
 
 # Linux
 if [[ "$(uname -s)" = "Linux" ]]; then
-  alias ls=' ls --color'
+  alias ls='ls --color'
 fi
 
 ## Git
@@ -67,12 +66,6 @@ alias gf='git fetch'
 alias gr='git rebase'
 alias gl='git log --oneline'
 
-## httpie
-alias h="http"
-alias hP="http PUT"
-alias hp="http POST"
-alias hd="http DELETE"
-
 ## Vagrant
 alias vd='vagrant destroy'
 alias vu='vagrant up'
@@ -80,9 +73,6 @@ alias vh='vagrant halt'
 alias vr='vagrant reload'
 alias vs='vagrant ssh'
 alias vst='vagrant status'
-
-## Kong
-alias kr="kong migrations reset --yes && kong migrations up && kong restart"
 
 ## misc
 alias cvs='cvs -z9 -q'
@@ -96,25 +86,22 @@ alias https='http --default-scheme=https'
 alias dm='docker-machine'
 alias dc='docker-compose'
 alias m='mbsync -a'
+alias kr="kong migrations reset --yes && kong migrations up && kong restart"
+alias vim='nvim'
+alias vi='nvim'
 
-# Enable editing the buffer past the point where
-# insert mode was activated
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
 zle -A backward-kill-line vi-kill-line
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
 
 # Key bindings behavior
 bindkey -v
-bindkey -a "k" history-beginning-search-backward-end
-bindkey -a "j" history-beginning-search-forward-end
+bindkey -a "k" history-beginning-search-backward
+bindkey -a "j" history-beginning-search-forward
 
-# cannot be in zprofile, since current tty can be different
-# from the login shell's
+# Cannot be in zprofile, since current tty can be
+# different from the login shell's
 export GPG_TTY=$(tty)
-
-# ZSH customs
 
 # autoload some functions
 for f ($(find $ZSH/functions/ -type f)); do
