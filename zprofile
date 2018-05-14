@@ -6,28 +6,18 @@ export CVS_RSH="ssh"
 export CVSROOT="salazar@cvs.NetBSD.org:/cvsroot"
 export ANONCVS="anoncvs@anoncvs.NetBSD.org:/cvsroot"
 
-# Environment
 export CLICOLOR="YES"
 export VISUAL=vim
 export EDITOR=vim
 export LESS="-RMIKC +Gg"
 export PAGER=less
 
-if [[ -f $HOME/.profile ]]; then
-  source $HOME/.profile
-fi
-
-PATH="/usr/pkg/bin:$PATH"
-PATH="/opt/pkg/bin:$PATH"
-PATH="/opt/local/bin:$PATH"
-PATH="$PATH:/usr/local/bin"
-PATH="$PATH:$HOME/.bin"
-PATH="$PATH:$HOME/.local/bin"
-export PATH
+eval $(/usr/libexec/path_helper)
+export PATH="$PATH:$HOME/.bin:$HOME/.local/bin"
 
 DEV="$HOME/Code"
 
-export WIKI=$DEV/misc/wiki
+export WIKI=$HOME/Documents/wiki
 
 # RVM
 if [[ -d $HOME/.rvm ]]; then
@@ -40,7 +30,7 @@ export GOPATH="$DEV/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # OpenResty
 if [[ "$OSTYPE" = "darwin"* ]]; then
