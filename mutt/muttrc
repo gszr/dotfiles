@@ -88,3 +88,4 @@ set pgp_replysign          # now crypt_replysign
 set pgp_replysignencrypted # now crypt_replysignencrypted
 set pgp_show_unusable=no
 
+color indicator cyan black
