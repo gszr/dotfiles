@@ -88,8 +88,3 @@ set pgp_replysign          # now crypt_replysign
 set pgp_replysignencrypted # now crypt_replysignencrypted
 set pgp_show_unusable=no
 
-source ~/.mutt/sidebar.rc
-
-set sidebar_visible=no
-set sidebar_width = 30
-set sidebar_short_path = yes
