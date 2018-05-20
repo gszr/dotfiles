@@ -49,7 +49,7 @@ export KONG_COMPOSE="$KONG/kong-tests-compose"
 
 # Kong config
 export KONG_ANONYMOUS_REPORTS=false
-export KONG_LOG_LEVEL="debug"
+export KONG_LOG_LEVEL="notice"
 export KONG_DNS_HOSTSFILE="/etc/hosts_kong"
 export KONG_NGINX_WORKER_PROCESSES="$(nproc 2>/dev/null || gnproc)"
 
