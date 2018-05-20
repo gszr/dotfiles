@@ -57,10 +57,8 @@ alternative_order text/plain text/enriched text/html
 auto_view text/html
 
 folder-hook 'personal' 'source ~/.mutt/personalrc'
-folder-hook 'work' 'source ~/.mutt/workrc'
 
 macro index p '<sync-mailbox><enter-command>source ~/.mutt/personalrc<enter><change-folder>!<enter>'
-macro index w '<sync-mailbox><enter-command>source ~/.mutt/workrc<enter><change-folder>!<enter>'
 macro index c '<change-folder>?<change-dir><home>^K=<enter>'
 
 bind index gg first-entry
