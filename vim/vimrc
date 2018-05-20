@@ -22,7 +22,8 @@ set relativenumber
 set title
 set ruler
 set nowrap
-set spell spelllang=en_us,pt
+set spelllang=en_us,pt
+set nospell
 set nofoldenable
 
 " Search
