@@ -1,6 +1,7 @@
 # config files
 CFG  = bin vim docker zshrc gitconfig zprofile dircolors urlview mutt
 CFG += msmtprc mbsyncrc gitignore_global config/nvim config/kitty config/alacritty
+CFG += tmux.conf
 
 OS != uname -s
 .if ${OS} != "Darwin"
