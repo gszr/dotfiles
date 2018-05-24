@@ -1,0 +1,9 @@
+# vim: ft=muttrc
+
+set folder = "~/Mail/archive"
+set record = "+sent"
+set mbox = "+inbox"
+set spoolfile = "+inbox"
+
+folder-hook . "exec collapse-all"
+
