@@ -2,6 +2,8 @@
 
 export CONF=$HOME/.conf
 export ZSH=$CONF/zsh
+export GIT=$HOME/git
+
 export CVS_RSH="ssh"
 export CVSROOT="salazar@cvs.NetBSD.org:/cvsroot"
 export ANONCVS="anoncvs@anoncvs.NetBSD.org:/cvsroot"
@@ -15,9 +17,7 @@ export PAGER=less
 eval $(/usr/libexec/path_helper)
 export PATH="$PATH:$HOME/.bin:$HOME/.local/bin"
 
-DEV="$HOME/Code"
-
-export WIKI=$HOME/Documents/wiki
+export WIKI=$GIT/wiki
 
 # RVM
 if [[ -d $HOME/.rvm ]]; then
@@ -26,7 +26,7 @@ if [[ -d $HOME/.rvm ]]; then
 fi
 
 # Go
-export GOPATH="$DEV/go"
+export GOPATH="$GIT/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # Rust
@@ -42,7 +42,7 @@ export PATH="$PATH:$RESTY_PATH/bin"
 export PATH="$PATH:$RESTY_PATH/luajit/bin"
 
 # Kong paths
-export KONG="$DEV/kong"
+export KONG="$GIT/kong"
 export KONG_PLUGINS="$KONG/kong-plugins"
 export KONG_VAGRANT="$KONG/kong-vagrant"
 export KONG_COMPOSE="$KONG/kong-tests-compose"
@@ -72,6 +72,7 @@ function start_agent {
 }
 
 source $ZSH/functions/ssh # load ssh helpers
+
 if ! is_ssh_session; then
   if [[ -f $SSH_ENV ]]; then
       . "${SSH_ENV}" > /dev/null
