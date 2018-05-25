@@ -24,8 +24,11 @@ all:
 
 install: prepare link
 
-prepare: prepare-vim-plugins prepare-solarized prepare-urxvt prepare-docker \
-	prepare-dircolors prepare-zsh prepare-mbsync prepare-msmtp
+prepare: prepare-self prepare-vim-plugins prepare-solarized prepare-urxvt \
+	prepare-docker prepare-dircolors prepare-zsh prepare-mbsync prepare-msmtp
+
+prepare-self:
+	ln -s ${PWD} ~/.conf
 
 prepare-vim-plugins: prepare-vim
 	@echo "Preparing VIM plugins"
