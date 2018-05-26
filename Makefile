@@ -24,11 +24,10 @@ all:
 
 install: prepare link
 
-prepare: prepare-self prepare-vim-plugins prepare-solarized prepare-urxvt \
+prepare: prepare-vim-plugins prepare-solarized prepare-urxvt \
 	prepare-docker prepare-dircolors prepare-zsh prepare-mbsync prepare-msmtp
 
 prepare-self:
-	ln -s ${PWD} ~/.conf
 
 prepare-vim-plugins: prepare-vim
 	@echo "Preparing VIM plugins"
@@ -91,6 +90,7 @@ link:
 	ln -sfn $(PWD)/$(cfg) ~/.$(cfg)
 .endfor
 	ln -sfn $(PWD)/bin/urxvt-perl ~/.urxvt/ext
+	ln -s ${PWD} ~/.conf
 
 clean: clean-links clean-vim clean-misc
 
@@ -99,6 +99,7 @@ clean-links:
 .for cfg in $(CFG)
 	rm -f ~/.$(cfg)
 .endfor
+	rm ~/.conf
 
 clean-vim:
 	@echo "Cleaning VIM stuff..."
