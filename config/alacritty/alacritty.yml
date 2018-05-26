@@ -251,8 +251,8 @@ live_config_reload: true
 #
 shell:
    program: /usr/local/bin/tmux
-#   args:
-#     - --login
+   args:
+      - attach
 
 # Key bindings
 #
