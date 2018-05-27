@@ -1,0 +1,31 @@
+### An example mbsyncrc that transfers mail from
+### a local mail store to a remote IMAP server
+
+IMAPAccount personal
+Host <IMAP server>
+User <IMAP user>
+Pass <IMAP pass>
+CertificateFile <IMAP certificate file>
+SSLType IMAPS
+
+# Define a remote store, backed by the server above
+IMAPStore personal-remote
+Account personal
+
+# Define the local store, source of the messages
+MaildirStore personal-archive
+SubFolders Verbatim
+Path ~/stuff/mail/archive/
+Inbox ~/stuff/mail/archive/inbox/
+
+# Define one channel for each folder
+Channel transfer
+Master :personal-archive:inbox
+Slave :personal-remote:"Archive/gmail/inbox"
+Patterns *
+SyncState *
+Create Slave
+Sync Pull
+SyncState ~/stuff/mail/imap-transfer
+CopyArrivalDate yes
+
