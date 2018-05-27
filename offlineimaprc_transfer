@@ -1,0 +1,29 @@
+[general]
+accounts = mbox
+ui = TTYUI
+
+[Account mbox]
+localrepository = mailbox_local
+remoterepository = mailbox_remote
+
+[Repository mailbox_local]
+type = Maildir
+localfolders = ~/stuff/mail/archive
+readonly = True
+
+[Repository mailbox_remote]
+type = IMAP
+remotehost = <IMAP host>
+remoteport = <IMAP port>
+remoteuser = <IMAP user>
+remotepass = <IMAP pass>
+ssl = yes
+cert_fingerprint = <IMAP cert fingerprint>
+usecompression = yes
+maxconnections = 3
+readonly = False
+realdelete = no
+createfolders = False
+folderfilter = lambda foldername: foldername in ['gmailinbox', 'gmailsent']
+utime_from_header = True
+filename_use_mail_timestamp = True
