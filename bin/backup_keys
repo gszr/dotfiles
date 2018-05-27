@@ -17,7 +17,7 @@ while getopts "d:f:h" OPTION; do
   esac
 done
 
-tar -c test -C ~/ .gnupg .ssh .password-store 2> /dev/null | \
+tar -c test -C ~/ .gnupg .ssh .password-store .electrum 2> /dev/null | \
   gpg --cipher-algo AES256 --symmetric --output $OUTPUT_DIR/$OUTPUT_NAME
 
 ls -l $OUTPUT_DIR/$OUTPUT_NAME
