@@ -1,31 +1,67 @@
-# config files
-CFG  = bin vim docker zshrc gitconfig zprofile dircolors urlview mutt
-CFG += msmtprc mbsyncrc gitignore_global config/nvim config/kitty config/alacritty
-CFG += tmux.conf
 
+# dotfiles
+CFG  = bin
+CFG += vim
+CFG += docker
+CFG += zshrc
+CFG += gitconfig
+CFG += zprofile
+CFG += dircolors
+CFG += urlview
+CFG += mutt
+CFG += msmtprc
+#CFG += mbsyncrc
+CFG += gitignore_global
+CFG += config/nvim
+CFG += tmux.conf
+CFG += config/kitty
+CFG += config/alacritty
+
+# those are **disabled** under Mac
 OS != uname -s
 .if ${OS} != "Darwin"
-CFG += i3 xinitrc Xresources imwheelrc
+
+CFG += i3
+CFG += xinitrc
+CFG += Xresources
+CFG += imwheelrc
+
 .endif
+
 
 # vim plugins
+# environment variable takes precedence
 .if !defined(VIM)
+
 VIM  = https://github.com/altercation/vim-colors-solarized
 VIM += https://github.com/vimwiki/vimwiki
+
 .endif
 
+
+# list existing plugins
 VIM_DIR = vim/pack/plugins/start
 .if exists(${VIM_DIR})
+
 PLUGINS != ls ${VIM_DIR}
+
 .endif
+
 
 all:
 	@echo "clean, prepare or install?"
 
 install: prepare link
 
-prepare: prepare-vim-plugins prepare-solarized prepare-urxvt \
-	prepare-docker prepare-dircolors prepare-zsh prepare-mbsync prepare-msmtp
+prepare: \
+	prepare-vim-plugins \
+	prepare-solarized \
+	prepare-urxvt \
+	prepare-docker \
+	prepare-dircolors \
+	prepare-zsh \
+	#prepare-mbsync \
+	prepare-msmtp
 
 prepare-self:
 
