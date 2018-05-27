@@ -1,3 +1,5 @@
+### Example mbsync file
+
 SyncState *
 Sync All
 Expunge Both
@@ -25,24 +27,3 @@ Master :personal-remote:
 Slave :personal-local:
 Patterns * ![Gmail]* "[Gmail]/Drafts" "[Gmail]/Sent Mail" "[Gmail]/All Mail" "[Gmail]/Trash" "[Gmail]/Spam"
 
-### Work
-
-IMAPAccount work
-Host imap.gmail.com
-User <user>
-PassCmd <password>
-SSLType IMAPS
-AuthMechs LOGIN
-
-IMAPStore work-remote
-Account work
-
-MaildirStore work-local
-Path ~/.mail/work/
-Inbox ~/.mail/work/Inbox
-SubFolders Verbatim
-
-Channel work
-Master :work-remote:
-Slave :work-local:
-Patterns * ![Gmail]* "[Gmail]/Drafts" "[Gmail]/Sent Mail" "[Gmail]/All Mail" "[Gmail]/Trash" "[Gmail]/Spam"
