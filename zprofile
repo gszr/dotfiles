@@ -1,8 +1,9 @@
 # vim: filetype=zsh
 
-export CONF=$HOME/.conf
+export CODE=$HOME/Code
+
+export CONF=$CODE/conf
 export ZSH=$CONF/zsh
-export GIT=$HOME/git
 
 export CVS_RSH="ssh"
 export CVSROOT="salazar@cvs.NetBSD.org:/cvsroot"
@@ -17,7 +18,7 @@ export PAGER=less
 eval $(/usr/libexec/path_helper)
 export PATH="$PATH:$HOME/.bin:$HOME/.local/bin"
 
-export WIKI=$GIT/wiki
+export WIKI=$CODE/wiki
 
 # RVM
 if [[ -d $HOME/.rvm ]]; then
@@ -26,7 +27,7 @@ if [[ -d $HOME/.rvm ]]; then
 fi
 
 # Go
-export GOPATH="$GIT/go"
+export GOPATH="$CODE/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # Rust
@@ -42,7 +43,7 @@ export PATH="$PATH:$RESTY_PATH/bin"
 export PATH="$PATH:$RESTY_PATH/luajit/bin"
 
 # Kong paths
-export KONG="$GIT/kong"
+export KONG="$CODE/kong"
 export KONG_PLUGINS="$KONG/kong-plugins"
 export KONG_VAGRANT="$KONG/kong-vagrant"
 export KONG_COMPOSE="$KONG/kong-tests-compose"
