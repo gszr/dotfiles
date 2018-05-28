@@ -10,11 +10,12 @@ CFG += dircolors
 CFG += urlview
 CFG += mutt
 CFG += msmtprc
-#CFG += mbsyncrc
+CFG += mbsyncrc
 CFG += gitignore_global
 CFG += config/nvim
 CFG += tmux.conf
 CFG += offlineimaprc
+CFG += offlineimap.py
 CFG += config/kitty
 CFG += config/alacritty
 
@@ -61,8 +62,9 @@ prepare: \
 	prepare-docker \
 	prepare-dircolors \
 	prepare-zsh \
-	#prepare-mbsync \
-	prepare-msmtp
+	prepare-mbsync \
+	prepare-msmtp \
+	prepare-offlineimap
 
 prepare-self:
 
@@ -132,7 +134,7 @@ link:
 	ln -sfn $(PWD)/$(cfg) ~/.$(cfg)
 .endfor
 	ln -sfn $(PWD)/bin/urxvt-perl ~/.urxvt/ext
-	ln -s ${PWD} ~/.conf
+	ln -sfn ${PWD} ~/.conf
 
 clean: clean-links clean-vim clean-misc
 
@@ -141,7 +143,7 @@ clean-links:
 .for cfg in $(CFG)
 	rm -f ~/.$(cfg)
 .endfor
-	rm ~/.conf
+	rm -f ~/.conf
 
 clean-vim:
 	@echo "Cleaning VIM stuff..."
