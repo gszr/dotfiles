@@ -14,6 +14,7 @@ CFG += msmtprc
 CFG += gitignore_global
 CFG += config/nvim
 CFG += tmux.conf
+CFG += offlineimaprc
 CFG += config/kitty
 CFG += config/alacritty
 
@@ -108,6 +109,11 @@ prepare-msmtp:
 	@echo "Preparing msmtp..."
 	cp msmtprc_template msmtprc
 	@echo "'msmtp' created; EDIT PLACEHOLDERS!"
+
+prepare-offlineimap:
+	@echo "Preparing offlineimap..."
+	cp offlineimaprc_template offlineimaprc
+	@echo "'offlineimaprc' create; EDIT PLACEHOLDERS!"
 
 update: update-vim-plugins
 
