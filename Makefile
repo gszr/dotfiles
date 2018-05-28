@@ -101,12 +101,12 @@ prepare-dircolors:
 
 prepare-mbsync:
 	@echo "Preparing mbsync..."
-	cp mbsyncrc.template mbsyncrc
+	cp mbsyncrc_template mbsyncrc
 	@echo "'mbsynrc' created; EDIT PLACEHOLDERS!"
 
 prepare-msmtp:
 	@echo "Preparing msmtp..."
-	cp msmtprc.template msmtprc
+	cp msmtprc_template msmtprc
 	@echo "'msmtp' created; EDIT PLACEHOLDERS!"
 
 update: update-vim-plugins
