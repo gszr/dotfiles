@@ -16,8 +16,8 @@ sync_deletes = no
 [Repository personal_remote]
 type = IMAP
 remoteport = 993
-remotehost = <IMAP server>
-remoteuser = <IMAP user>
+remotehost = imap.mailbox.org
+remoteuser = m@gszr.org
 remotepasseval = get_password("personal")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
@@ -39,8 +39,8 @@ sync_deletes = no
 [Repository work_remote]
 type = IMAP
 remoteport = 993
-remotehost = <IMAP server>
-remoteuser = <IMAP user>
+remotehost = imap.gmail.com
+remoteuser = gs@konghq.com
 remotepasseval = get_password("work")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem

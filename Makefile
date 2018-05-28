@@ -10,12 +10,12 @@ CFG += dircolors
 CFG += urlview
 CFG += mutt
 CFG += msmtprc
-CFG += mbsyncrc
+#CFG += mbsyncrc
+CFG += offlineimaprc
+CFG += offlineimap.py
 CFG += gitignore_global
 CFG += config/nvim
 CFG += tmux.conf
-CFG += offlineimaprc
-CFG += offlineimap.py
 CFG += config/kitty
 CFG += config/alacritty
 
@@ -61,10 +61,7 @@ prepare: \
 	prepare-urxvt \
 	prepare-docker \
 	prepare-dircolors \
-	prepare-zsh \
-	prepare-mbsync \
-	prepare-msmtp \
-	prepare-offlineimap
+	prepare-zsh
 
 prepare-self:
 
@@ -101,21 +98,6 @@ prepare-zsh:
 prepare-dircolors:
 	@echo "Preparing dircolors..."
 	curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-dark > dircolors
-
-prepare-mbsync:
-	@echo "Preparing mbsync..."
-	cp mbsyncrc_template mbsyncrc
-	@echo "'mbsynrc' created; EDIT PLACEHOLDERS!"
-
-prepare-msmtp:
-	@echo "Preparing msmtp..."
-	cp msmtprc_template msmtprc
-	@echo "'msmtp' created; EDIT PLACEHOLDERS!"
-
-prepare-offlineimap:
-	@echo "Preparing offlineimap..."
-	cp offlineimaprc_template offlineimaprc
-	@echo "'offlineimaprc' create; EDIT PLACEHOLDERS!"
 
 update: update-vim-plugins
 

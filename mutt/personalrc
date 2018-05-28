@@ -2,19 +2,19 @@
 
 set signature = ~/.mutt/p_sig
 set sendmail = "msmtp -a personal"
-set folder = "~/.mail/personal"
+set folder = "~/Mail/personal/"
 set spoolfile = "+Inbox"
-set postponed = "+[Gmail]/Drafts"
-set record = "+[Gmail]/Sent Mail"
-set trash = "+[Gmail]/Trash"
-set mbox = "+[Gmail]/All Mail"
-set from = "gsz@acm.org"
+set postponed = "+Drafts"
+set record = "+Sent"
+set trash = "+Trash"
+set mbox = "+Archive"
+set from = "Guilherme Salazar <gsz@acm.org>"
 
 unmailboxes *
-mailboxes +Inbox +[Gmail]/Drafts +[Gmail]/Sent\ Mail +[Gmail]/Trash +[Gmail]/All\ Mail
+mailboxes +Inbox +Drafts +Sent +Trash
 
-macro index F '<shell-escape>echo "Syncing personal mail..."; mbsync personal<enter>'
-macro index,pager a "<save-message>+[Gmail]/All Mail<enter><enter>" "Archive"
+macro index F '<shell-escape>echo "Syncing personal mail..."; offlineimap -a personal<enter>'
+#macro index,pager a "<save-message>+[Gmail]/All Mail<enter><enter>" "Archive"
 
 folder-hook . "exec collapse-all"
 
