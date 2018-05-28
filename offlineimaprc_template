@@ -1,5 +1,6 @@
 [general]
 accounts = personal,work
+pythonfile = ~/.offlineimap.py
 
 [Account personal]
 localrepository = personal_local
@@ -14,13 +15,13 @@ sync_deletes = no
 
 [Repository personal_remote]
 type = IMAP
+remoteport = 993
 remotehost = <IMAP server>
-remoteport = <IMAP port>
 remoteuser = <IMAP user>
-remotepass = <IMAP pass>
+remotepasseval = get_password("personal")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
-maxconnections = 2
+maxconnections = 5
 readonly = no
 
 
@@ -37,11 +38,11 @@ sync_deletes = no
 
 [Repository work_remote]
 type = IMAP
+remoteport = 993
 remotehost = <IMAP server>
-remoteport = <IMAP port>
 remoteuser = <IMAP user>
-remotepass = <IMAP pass>
+remotepasseval = get_password("work")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
-maxconnections = 2
+maxconnections = 5
 readonly = no
