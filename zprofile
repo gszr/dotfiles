@@ -16,7 +16,7 @@ export LESS="-RMIKC +Gg"
 export PAGER=less
 
 eval $(/usr/libexec/path_helper)
-export PATH="$PATH:$HOME/.bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.bin:$HOME/.local/bin:/usr/local/sbin"
 
 export WIKI=$CODE/wiki
 
