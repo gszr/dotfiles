@@ -20,18 +20,17 @@ export PATH="$PATH:$HOME/.bin:$HOME/.local/bin:/usr/local/sbin"
 
 export WIKI=$CODE/wiki
 
-# RVM
-if [[ -d $HOME/.rvm ]]; then
-  export PATH="$PATH:$HOME/.rvm/bin"
-  source /Users/$USER/.rvm/scripts/rvm
-fi
-
 # Go
 export GOPATH="$CODE/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
+
+# Ruby
+if which rbenv &> /dev/null; then
+  eval "$(rbenv init -)"
+fi
 
 # OpenResty
 if [[ "$OSTYPE" = "darwin"* ]]; then
