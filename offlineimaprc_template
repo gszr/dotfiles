@@ -1,0 +1,47 @@
+[general]
+accounts = personal,work
+
+[Account personal]
+localrepository = personal_local
+remoterepository = personal_remote
+quick = 10
+
+[Repository personal_local]
+type = Maildir
+localfolders = ~/Mail/personal
+readonly = no
+sync_deletes = no
+
+[Repository personal_remote]
+type = IMAP
+remotehost = <IMAP server>
+remoteport = <IMAP port>
+remoteuser = <IMAP user>
+remotepass = <IMAP pass>
+ssl = yes
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+maxconnections = 2
+readonly = no
+
+
+[Account work]
+localrepository = work_local
+remoterepository = work_remote
+quick = 10
+
+[Repository work_local]
+type = Maildir
+localfolders = ~/Mail/work
+readonly = no
+sync_deletes = no
+
+[Repository work_remote]
+type = IMAP
+remotehost = <IMAP server>
+remoteport = <IMAP port>
+remoteuser = <IMAP user>
+remotepass = <IMAP pass>
+ssl = yes
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+maxconnections = 2
+readonly = no
