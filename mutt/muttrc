@@ -89,3 +89,8 @@ set pgp_replysignencrypted # now crypt_replysignencrypted
 set pgp_show_unusable=no
 
 color indicator cyan black
+
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+bind editor <Tab> complete-query
+bind editor ^T    complete
+
