@@ -38,7 +38,7 @@ remoteuser = m@gszr.org
 remotepasseval = get_password("personal")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
-maxconnections = 5
+maxconnections = 2
 
 
 #
@@ -63,4 +63,4 @@ remoteuser = gs@konghq.com
 remotepasseval = get_password("work")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
-maxconnections = 5
+maxconnections = 2
