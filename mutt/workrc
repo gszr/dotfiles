@@ -10,6 +10,9 @@ set trash = "+[Gmail].Trash"
 set mbox = "+[Gmail].All Mail"
 set from = "Guilherme Salazar <gs@konghq.com>"
 
+unmailboxes *
+mailboxes +INBOX
+
 macro index F '<shell-escape>echo "Syncing work mail..."; offlineimap -a work<enter>'
 macro index,pager a "<save-message>+[Gmail].All Mail<enter><enter>" "Archive"
 

@@ -43,13 +43,14 @@ set forward_quote=yes
 set header_cache = ~/.cache/mutt/headers
 set message_cachedir = ~/.cache/mutt/bodies
 set mailcap_path = ~/.mutt/mailcap
-set certificate_file = ~/.mutt/certificates
 
 set ssl_starttls=yes
 set ssl_force_tls=yes
 set timeout=10
 set mail_check=0
+set move=yes
 set delete=ask-yes
+set confirmappend=yes
 set beep_new=yes
 
 set display_filter="sed -e '/\\[-- Autoview using .* --\\]/d'"
