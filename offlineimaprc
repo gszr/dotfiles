@@ -28,7 +28,6 @@ quick = 10
 [Repository personal_local]
 type = Maildir
 localfolders = ~/Mail/personal
-sync_deletes = no
 
 [Repository personal_remote]
 type = IMAP
@@ -53,7 +52,6 @@ quick = 10
 [Repository work_local]
 type = Maildir
 localfolders = ~/Mail/work
-sync_deletes = no
 
 [Repository work_remote]
 type = IMAP
