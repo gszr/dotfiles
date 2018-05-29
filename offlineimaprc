@@ -1,6 +1,24 @@
+#
+# GENERAL
+#
+
 [general]
 accounts = personal,work
 pythonfile = ~/.offlineimap.py
+fsync = no
+
+#[mbnames]
+#enabled = yes
+#filename = ~/Mail/mailboxes
+#header = "mailboxes "
+#peritem = "+%(accountname)s/%(foldername)s"
+#sep = " "
+#footer = "\n"
+
+
+#
+# PERSONAL
+#
 
 [Account personal]
 localrepository = personal_local
@@ -10,7 +28,6 @@ quick = 10
 [Repository personal_local]
 type = Maildir
 localfolders = ~/Mail/personal
-readonly = no
 sync_deletes = no
 
 [Repository personal_remote]
@@ -22,8 +39,11 @@ remotepasseval = get_password("personal")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 maxconnections = 5
-readonly = no
 
+
+#
+# WORK
+#
 
 [Account work]
 localrepository = work_local
@@ -33,7 +53,6 @@ quick = 10
 [Repository work_local]
 type = Maildir
 localfolders = ~/Mail/work
-readonly = no
 sync_deletes = no
 
 [Repository work_remote]
@@ -45,4 +64,3 @@ remotepasseval = get_password("work")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 maxconnections = 5
-readonly = no
