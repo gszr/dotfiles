@@ -3,15 +3,12 @@
 set signature = ~/.mutt/w_sig
 set sendmail = "msmtp -a work"
 set folder = "~/Mail/work"
-set spoolfile = "+Inbox"
+set spoolfile = "+INBOX"
 set postponed = "+[Gmail].Drafts"
 set record = "+[Gmail].Sent Mail"
 set trash = "+[Gmail].Trash"
 set mbox = "+[Gmail].All Mail"
 set from = "Guilherme Salazar <gs@konghq.com>"
-
-unmailboxes *
-mailboxes +Inbox +[Gmail].All\ Mail +[Gmail].Sent\ Mail +[Gmail].Trash
 
 macro index F '<shell-escape>echo "Syncing work mail..."; offlineimap -a work<enter>'
 macro index,pager a "<save-message>+[Gmail].All Mail<enter><enter>" "Archive"

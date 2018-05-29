@@ -3,18 +3,15 @@
 set signature = ~/.mutt/p_sig
 set sendmail = "msmtp -a personal"
 set folder = "~/Mail/personal/"
-set spoolfile = "+Inbox"
+set spoolfile = "+INBOX"
 set postponed = "+Drafts"
 set record = "+Sent"
 set trash = "+Trash"
 set mbox = "+Archive"
 set from = "Guilherme Salazar <gsz@acm.org>"
 
-unmailboxes *
-mailboxes +Inbox +Drafts +Sent +Trash
-
 macro index F '<shell-escape>echo "Syncing personal mail..."; offlineimap -a personal<enter>'
-#macro index,pager a "<save-message>+[Gmail]/All Mail<enter><enter>" "Archive"
+macro index,pager a "<save-message>+Archive<enter><enter>" "Archive"
 
 folder-hook . "exec collapse-all"
 
