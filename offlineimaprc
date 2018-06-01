@@ -24,6 +24,9 @@ fsync = no
 [Account personal]
 localrepository = personal_local
 remoterepository = personal_remote
+autorefresh = 1
+holdconnectionopen = yes
+maxconnections = 3
 quick = 10
 
 [Repository personal_local]
@@ -38,7 +41,6 @@ remoteuser = m@gszr.org
 remotepasseval = get_password("personal")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
-maxconnections = 2
 
 
 #
@@ -48,6 +50,9 @@ maxconnections = 2
 [Account work]
 localrepository = work_local
 remoterepository = work_remote
+autorefresh = 1
+holdconnectionopen = yes
+maxconnections = 3
 quick = 10
 
 [Repository work_local]
@@ -62,4 +67,3 @@ remoteuser = gs@konghq.com
 remotepasseval = get_password("work")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
-maxconnections = 2
