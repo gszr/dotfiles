@@ -13,8 +13,6 @@ set sig_dashes = no
 
 set editor = "vim"
 set charset = "utf-8"
-set record = ''
-set smtp_authenticators = 'gssapi:login'
 
 set sort=threads
 set strict_threads="yes"
