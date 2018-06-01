@@ -5,6 +5,7 @@
 [general]
 accounts = personal,work
 pythonfile = ~/.offlineimap.py
+maxsyncaccounts = 2
 fsync = no
 
 #[mbnames]
