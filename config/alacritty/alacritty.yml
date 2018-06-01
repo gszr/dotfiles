@@ -393,12 +393,12 @@ key_bindings:
   - { key: F11,      mods: Command, chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
 
-  - { key: LBracket,                chars: "["                           }
-  - { key: RBracket,                chars: "]"                           }
-  - { key: LBracket, mods: Shift,   chars: "{"                           }
-  - { key: RBracket, mods: Shift,   chars: "}"                           }
-  - { key: Apostrophe,              chars: "'"                           }
-  - { key: Apostrophe, mods: Shift, chars: "\""                           }
-  - { key: Grave,                   chars: "`"                           }
-  - { key: Grave,    mods: Shift,   chars: "~"                           }
-  - { key: A,        mods: Command, chars: "ã"                           }
+    #  - { key: LBracket,                chars: "["                           }
+    #  - { key: RBracket,                chars: "]"                           }
+    #  - { key: LBracket, mods: Shift,   chars: "{"                           }
+    #  - { key: RBracket, mods: Shift,   chars: "}"                           }
+    #  - { key: Apostrophe,              chars: "'"                           }
+    #  - { key: Apostrophe, mods: Shift, chars: "\""                          }
+    #  - { key: Grave,                   chars: "`"                           }
+    #  - { key: Grave,    mods: Shift,   chars: "~"                           }
+    #  - { key: A,        mods: Command, chars: "ã"                           }
