@@ -21,6 +21,7 @@ set sort_aux=reverse-last-date-received
 set date_format = "%T %D"
 set index_format = "%4C %Z %?X?A&-? %D  %-15.15L  %s"
 set folder_format="%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f"
+set beep_new = yes
 
 set pager_stop=yes
 set pager_context=3
