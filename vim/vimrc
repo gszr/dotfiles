@@ -25,6 +25,7 @@ set nowrap
 set spelllang=en_us,pt
 set nospell
 set nofoldenable
+set iskeyword-=_
 
 " Search
 set ignorecase
