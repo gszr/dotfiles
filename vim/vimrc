@@ -10,7 +10,7 @@ set dir=~/.vim/swap
 set nobackup
 
 " General
-set clipboard=unnamedplus
+set clipboard^=unnamed
 set mouse=a
 set ttyfast
 set splitright
