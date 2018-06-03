@@ -7,6 +7,8 @@ zstyle ':completion:*' menu select
 # TODO review this in the future
 . ~/.zprofile
 
+fpath=($ZSH/completions $fpath)
+
 autoload -Uz compinit && compinit
 autoload -Uz colors && colors
 autoload -Uz select-word-style && select-word-style bash
