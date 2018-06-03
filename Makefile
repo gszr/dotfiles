@@ -18,6 +18,7 @@ CFG += config/nvim
 CFG += tmux.conf
 CFG += config/kitty
 CFG += config/alacritty
+CFG += config/redshift.conf
 
 # those are **disabled** under Mac
 OS != uname -s
