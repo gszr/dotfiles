@@ -72,7 +72,14 @@ bind pager k  previous-line
 bind pager j  next-line
 bind pager N search-opposite
 
-macro index,pager \Cu "<enter-command> unset pipe_decode<enter><pipe-message>extract_url<enter>" "get URLs"
+macro index,pager \Cu "<enter-command> unset pipe_decode<enter><pipe-message>extract_url <enter>" "get URLs"
+macro index \cb "\
+:set my_tmp_pipe_decode=\$pipe_decode\n\
+:set pipe_decode\n\
+|urlview\n\
+:set pipe_decode=\$my_tmp_pipe_decode\n\
+:unset my_tmp_pipe_decode\n" \
+'call urlview to extract URLs out of a message'
 
 set edit_headers=yes
 set use_envelope_from=yes
