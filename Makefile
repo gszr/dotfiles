@@ -62,7 +62,8 @@ prepare: \
 	prepare-urxvt \
 	prepare-docker \
 	prepare-dircolors \
-	prepare-zsh
+	prepare-zsh \
+	prepare-bin
 
 prepare-self:
 
@@ -99,6 +100,10 @@ prepare-zsh:
 prepare-dircolors:
 	@echo "Preparing dircolors..."
 	curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-dark > dircolors
+
+prepare-bin:
+	@echo "Preparing bin..."
+	git clone https://github.com/gszr/bin
 
 update: update-vim-plugins
 
