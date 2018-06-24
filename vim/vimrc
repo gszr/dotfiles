@@ -25,7 +25,6 @@ set nowrap
 set spelllang=en_us,pt
 set nospell
 set nofoldenable
-set iskeyword-=_
 set formatoptions+=w
 
 " Search
