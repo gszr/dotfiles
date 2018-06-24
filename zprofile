@@ -2,7 +2,7 @@
 
 export CODE=$HOME/Code
 
-export CONF=$CODE/conf
+export CONF=$CODE/dotfiles
 export ZSH=$CONF/zsh
 
 export CVS_RSH="ssh"
