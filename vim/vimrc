@@ -23,7 +23,7 @@ set title
 set ruler
 set nowrap
 set spelllang=en_us,pt
-set nospell
+set spell
 set nofoldenable
 set formatoptions+=w
 
