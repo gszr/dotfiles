@@ -103,7 +103,7 @@ prepare-dircolors:
 
 prepare-bin:
 	@echo "Preparing bin..."
-	git clone https://github.com/gszr/bin
+	git clone git@github.com:gszr/bin.git
 
 update: update-vim-plugins
 
