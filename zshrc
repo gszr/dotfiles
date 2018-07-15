@@ -91,6 +91,10 @@ alias m='mbsync -a'
 alias kr="kong migrations reset --yes && kong migrations up && kong restart"
 alias vi="vim"
 
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  alias vim="/usr/local/bin/vim"
+fi
+
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
 zle -A backward-kill-line vi-kill-line
