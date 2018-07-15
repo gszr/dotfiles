@@ -58,7 +58,7 @@
 
 # Software-related bindings
   bindsym $mod+Return exec --no-startup-id urxvtc
-  bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --entry-type command
+  bindsym $mod+d exec --no-startup-id dmenu_run
  
   bindsym $mod+F12 exec --no-startup-id amixer -q set Master 5%+
   bindsym $mod+F11 exec --no-startup-id amixer -q set Master 5%-
