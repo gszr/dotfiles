@@ -89,8 +89,7 @@ alias dm='docker-machine'
 alias dc='docker-compose'
 alias m='mbsync -a'
 alias kr="kong migrations reset --yes && kong migrations up && kong restart"
-alias vim='nvim'
-alias vi='nvim'
+alias vi="vim"
 
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
