@@ -62,7 +62,7 @@ colorscheme solarized
 " Keybindings
 cmap w!! w !sudo tee > /dev/null %
 
-let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path': expand("$WIKI")}]
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path': expand("$WIKIS") . "/personal"},{'syntax': 'markdown', 'ext': '.md', 'path': expand("$WIKIS") . "/guides"}]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_folding=''
 

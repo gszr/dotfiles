@@ -26,7 +26,7 @@ fi
 
 export PATH="$PATH:$HOME/.bin:$HOME/.local/bin"
 
-export WIKI=$CODE/wiki
+export WIKIS=$CODE/wikis
 
 # Go
 export GOPATH="$CODE/go"
