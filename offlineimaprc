@@ -40,6 +40,11 @@ remoteuser = m@gszr.org
 remotepasseval = get_password("personal")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
+folderfilter = lambda foldername: foldername in [
+  'Archive',
+  'INBOX',
+  'Sent'
+  ]
 
 
 #
@@ -66,3 +71,8 @@ remoteuser = gs@konghq.com
 remotepasseval = get_password("work")
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
+folderfilter = lambda foldername: foldername in [
+  'INBOX',
+  '[Gmail]/All Mail',
+  '[Gmail]/Sent Mail'
+  ]
