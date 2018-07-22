@@ -68,28 +68,4 @@ export KONG_UTILITIES=yes
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_MAKE_JOBS=$(( $(nproc 2> /dev/null || gnproc) + 1 ))
 
-# SSH
-SSH_ENV="$HOME/.ssh/env"
-
-function start_agent {
-  echo -n "Initialising new SSH agent... "
-  ssh-agent -t 3600 | sed 's/^echo/#echo/' > "$SSH_ENV"
-  echo "succeeded"
-  chmod 600 "${SSH_ENV}"
-  . "${SSH_ENV}" > /dev/null
-}
-
-source $ZSH/functions/ssh # load ssh helpers
-
-if ! is_ssh_session; then
-  if [[ -f $SSH_ENV ]]; then
-      . "${SSH_ENV}" > /dev/null
-      if ! kill -0 $SSH_AGENT_PID &> /dev/null; then
-        start_agent;
-      fi
-  else
-      start_agent;
-  fi
-fi
-
 export LANG="en_US.UTF-8" export LC_CTYPE="en_US.UTF-8" export LC_ALL=""
