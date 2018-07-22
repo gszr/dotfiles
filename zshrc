@@ -4,9 +4,6 @@ zstyle ':completion:*:complete:*make:*:variables' hidden yes
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu select
 
-# TODO review this in the future
-. ~/.zprofile
-
 fpath=($ZSH/completions $fpath)
 
 autoload -Uz compinit && compinit
