@@ -24,7 +24,7 @@ ui = basic
 [Account personal]
 localrepository = personal_local
 remoterepository = personal_remote
-autorefresh = 1
+autorefresh = 0.5
 holdconnectionopen = yes
 maxconnections = 3
 quick = 10
@@ -55,7 +55,7 @@ folderfilter = lambda foldername: foldername in [
 [Account work]
 localrepository = work_local
 remoterepository = work_remote
-autorefresh = 1
+autorefresh = 0.5
 holdconnectionopen = yes
 maxconnections = 3
 quick = 10
