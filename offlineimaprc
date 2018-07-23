@@ -6,6 +6,7 @@
 accounts = personal,work
 pythonfile = ~/.offlineimap.py
 fsync = no
+ui = basic
 
 #[mbnames]
 #enabled = yes
