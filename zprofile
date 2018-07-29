@@ -1,6 +1,7 @@
 # vim: filetype=zsh
 
-export CODE=$HOME/Code
+export CODE=$HOME/
+export MAIL=$HOME/mail
 
 export CONF=$CODE/dotfiles
 export ZSH=$CONF/zsh

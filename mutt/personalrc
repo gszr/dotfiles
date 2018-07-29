@@ -1,8 +1,8 @@
 # vim: ft=muttrc
 
 set signature = ~/.mutt/p_sig
+set folder = $MAIL/personal/
 set sendmail = "msmtp -a personal"
-set folder = "~/Mail/personal/"
 set spoolfile = "+INBOX"
 set postponed = "+Drafts"
 set record = "+Sent"
