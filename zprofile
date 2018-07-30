@@ -1,6 +1,6 @@
 # vim: filetype=zsh
 
-export CODE=$HOME/
+export CODE=$HOME/code
 export MAIL=$HOME/mail
 
 export CONF=$CODE/dotfiles
@@ -22,7 +22,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 fi
 
 if [[ "$(uname -s)" == "NetBSD" ]]; then
-  export PATH="$PATH:/usr/pkg/bin:/usr/pkg/sbin:/usr/X11R7/bin"
+  export PATH="$PATH:/sbin:/usr/pkg/bin:/usr/pkg/sbin:/usr/X11R7/bin"
 fi
 
 export PATH="$PATH:$HOME/.bin:$HOME/.local/bin"
