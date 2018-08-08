@@ -41,6 +41,11 @@ if which rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 fi
 
+# Python
+if which pyenv &> /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
 # OpenResty
 if [[ "$OSTYPE" = "darwin"* ]]; then
   export RESTY_PATH="/usr/local/opt/openresty"
