@@ -39,6 +39,7 @@ remoteport = 993
 remotehost = imap.mailbox.org
 remoteuser = m@gszr.org
 remotepasseval = get_password("personal")
+usecompression = yes
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 folderfilter = lambda foldername: foldername in [
