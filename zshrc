@@ -104,6 +104,7 @@ bindkey -a "j" history-beginning-search-forward
 # Cannot be in zprofile, since current tty can be
 # different from the login shell's
 export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye &> /dev/null
 
 # autoload some functions
 for f ($(find $ZSH/functions/ -type f)); do
