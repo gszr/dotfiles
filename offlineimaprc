@@ -10,7 +10,7 @@ ui = basic
 
 #[mbnames]
 #enabled = yes
-#filename = ~/Mail/mailboxes
+#filename = ~/mail/mailboxes
 #header = "mailboxes "
 #peritem = "+%(accountname)s/%(foldername)s"
 #sep = " "
@@ -26,12 +26,11 @@ localrepository = personal_local
 remoterepository = personal_remote
 autorefresh = 0.5
 holdconnectionopen = yes
-maxconnections = 3
-quick = 10
+maxconnections = 1
 
 [Repository personal_local]
 type = Maildir
-localfolders = ~/Mail/personal
+localfolders = ~/mail/personal
 
 [Repository personal_remote]
 type = IMAP
@@ -41,7 +40,7 @@ remoteuser = m@gszr.org
 remotepasseval = get_password("personal")
 usecompression = yes
 ssl = yes
-sslcacertfile = /usr/local/etc/openssl/cert.pem
+sslcacertfile = /etc/ssl/cert.pem
 folderfilter = lambda foldername: foldername in [
   'Archive',
   'INBOX',
@@ -63,7 +62,7 @@ quick = 10
 
 [Repository work_local]
 type = Maildir
-localfolders = ~/Mail/work
+localfolders = ~/mail/work
 
 [Repository work_remote]
 type = IMAP

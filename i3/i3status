@@ -6,27 +6,27 @@ general {
 	interval  = 2
 }
 
-order += "wireless iwn0"
-order += "ethernet re0"
-order += "battery 0"
+order += "brightness"
 order += "volume master"
+order += "wireless wlp2s0"
+order += "battery 0"
 order += "tztime local"
 
-wireless iwn0 {
+wireless wlp2s0 {
 	format_up   = " W: %ip "
 	format_down = " W: down "
 }
 
-ethernet re0 {
+ethernet enp0s31f6 {
 	format_up   = " E: %ip "
 	format_down = " E: down "
 }
 
 battery 0 {
 	format = "%status %percentage %remaining "
-	path   = "/sys/class/power_supply/BAT1/uevent"
-	status_chr  = " ⚇ CHR"
-	status_bat  = " ⚡ BAT"
+	path   = "/sys/class/power_supply/BAT0/uevent"
+	status_chr  = "   CHR"
+	status_bat  = "   BAT"
 	status_full = " ☻ FULL"
 	hide_seconds = true
 	integer_battery_capacity = true
@@ -39,5 +39,5 @@ volume master {
 }
 
 tztime local {
-	format = " ⌚ %H:%M %d-%m-%y "
+	format = "      %H:%M %m-%d-%y "
 }

@@ -11,6 +11,7 @@ CFG += urlview
 CFG += mutt
 CFG += msmtprc
 #CFG += mbsyncrc
+CFG += xbindkeysrc
 CFG += offlineimaprc
 CFG += offlineimap.py
 CFG += gitignore_global
@@ -103,7 +104,7 @@ prepare-dircolors:
 
 prepare-bin:
 	@echo "Preparing bin..."
-	git clone git@github.com:gszr/bin.git
+	git clone https://github.com/gszr/bin.git
 
 update: update-vim-plugins
 

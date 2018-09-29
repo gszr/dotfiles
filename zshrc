@@ -9,6 +9,7 @@ fpath=($ZSH/completions $fpath)
 autoload -Uz compinit && compinit
 autoload -Uz colors && colors
 autoload -Uz select-word-style && select-word-style bash
+autoload -U history-search-end
 
 # History
 HISTSIZE=10000
@@ -87,6 +88,8 @@ alias dc='docker-compose'
 alias m='mbsync -a'
 alias kr="kong migrations reset --yes && kong migrations up && kong restart"
 alias vi="vim"
+alias screen_on="xrandr --auto --output DP1 --left-of eDP1 --auto --mode 2560x1440"
+alias screen_off="xrandr --output DP1 --off"
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   alias vim="/usr/local/bin/vim"
@@ -95,6 +98,7 @@ fi
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
 zle -A backward-kill-line vi-kill-line
+zle -N history-beginning-search-backward-end history-search-end
 
 # Key bindings behavior
 bindkey -v
@@ -104,7 +108,10 @@ bindkey -a "j" history-beginning-search-forward
 # Cannot be in zprofile, since current tty can be
 # different from the login shell's
 export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye &> /dev/null
+
+function precmd {
+  gpg-connect-agent updatestartuptty /bye &> /dev/null
+}
 
 # autoload some functions
 for f ($(find $ZSH/functions/ -type f)); do
@@ -113,6 +120,11 @@ done
 
 PROMPT='$(ssh_get_info)%c%{$fg[blue]%} $ %{$reset_color%}'
 RPROMPT='$(zsh_get_rprompt)'
+
+if hash dircolors &> /dev/null; then
+  eval `dircolors ~/.dircolors`
+  zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+fi
 
 if hash gdircolors &> /dev/null; then
   eval `gdircolors ~/.dircolors`

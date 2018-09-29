@@ -2,7 +2,7 @@
 
 #General config
   set $mod Mod1
-  font pango:DejaVu Sans Mono 10
+  font pango:DejaVu Sans Mono, FontAwesome, Ionicons, 14
   floating_modifier $mod
   workspace_auto_back_and_forth yes
   hide_edge_borders both
@@ -30,7 +30,6 @@
   bindsym $mod+Shift+h split h
   bindsym $mod+Shift+v split v
 
-  bindsym $mod+s layout stacking
   bindsym $mod+w layout tabbed
   bindsym $mod+e layout toggle split
   bindsym $mod+f fullscreen toggle
@@ -59,17 +58,11 @@
 # Software-related bindings
   bindsym $mod+Return exec --no-startup-id urxvtc
   bindsym $mod+d exec --no-startup-id dmenu_run
+  bindsym --release Print exec scrot -s -e 'mv $f ~/shots/'
  
-  bindsym $mod+F12 exec --no-startup-id amixer -q set Master 5%+
-  bindsym $mod+F11 exec --no-startup-id amixer -q set Master 5%-
   bindsym $mod+F10 exec --no-startup-id cmus-remote -n
   bindsym $mod+F9  exec --no-startup-id cmus-remote -u
   bindsym $mod+F8  exec --no-startup-id cmus-remote -r
-  bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
-
-  bindsym $mod+F4 exec --no-startup-id xbacklight -dec 10
-  bindsym $mod+F5 exec --no-startup-id xbacklight -inc 10
-  bindsym $mod+v exec --no-startup-id vim
 
   bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -n
   exec_always --no-startup-id feh --bg-scale $HOME/.wallpaper
@@ -90,6 +83,7 @@
   bindsym $mod+8 workspace 8
   bindsym $mod+9 workspace 9
   bindsym $mod+0 workspace 10
+  bindsym $mod+s workspace slack
 
   bindsym $mod+Shift+1 move container to workspace 1
   bindsym $mod+Shift+2 move container to workspace 2
@@ -101,6 +95,7 @@
   bindsym $mod+Shift+8 move container to workspace 8
   bindsym $mod+Shift+9 move container to workspace 9
   bindsym $mod+Shift+0 move container to workspace 10
+  bindsym $mod+Shift+s move container to workspace slack
 
   workspace 1  output $scr1
   workspace 2  output $scr1
@@ -112,6 +107,7 @@
   workspace 8  output $scr1
   workspace 9  output $scr1
   workspace 10 output $scr1
+  workspace slack output $src1
 
 ## Software-workspace bindings
   for_window [class="Lxappearance"] floating enable
@@ -119,6 +115,8 @@
   for_window [class="Firefox" instance="Places"] floating enable
   for_window [class="GParted"] floating enable
   for_window [class="Thunderbird" instance="Msgcompose"] floating enable
+
+  assign [class="^Slack"] "slack"
 
 ## Steam
 ## https://github.com/ValveSoftware/steam-for-linux/issues/1040
@@ -163,3 +161,4 @@
     tray_output primary
     position bottom
   }
+

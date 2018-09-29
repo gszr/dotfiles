@@ -21,10 +21,10 @@ URxvt.iso14755:          false
 URxvt.iso14755_52:       false
 
 ! urxvt fonts
-URxvt*font:           xft:DejaVu Sans Mono:pixelsize=21
-URxvt*boldFont:       xft:DejaVu Sans Mono:bold:pixelsize=21
-URxvt*italicFont:     xft:DejaVu Sans Mono:italic:pixelsize=21
-URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:pixelsize=21
+URxvt*font:           xft:DejaVu Sans Mono:pixelsize=23
+URxvt*boldFont:       xft:DejaVu Sans Mono:bold:pixelsize=23
+URxvt*italicFont:     xft:DejaVu Sans Mono:italic:pixelsize=23
+URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:pixelsize=23
 
 ! urxvt keybindings
 URxvt.keysym.S-Up:    \033[1;2A
