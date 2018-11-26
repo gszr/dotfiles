@@ -1,0 +1,23 @@
+# vim: filetype=zsh
+# some ssh-related functions
+
+function set_kong_env {
+  local lua_path=";;"
+  local kong_plugins
+
+  for plugin_path in $KONG_PLUGINS_DIR/*; do
+    lua_path="$lua_path;$plugin_path/?.lua"
+    lua_path="$lua_path;$plugin_path/?/init.lua"
+    kong_plugins="${kong_plugins:+$kong_plugins,}$(basename $plugin_path/kong/plugins/*)"
+  done
+
+  # enable all plugins
+  export KONG_CUSTOM_PLUGINS="$kong_plugins"
+
+  # set path for all Kong plugins
+  export LUA_PATH="$lua_path" # kong migrations up needs this,
+                              # since KONG_LUA_PACKAGE_PATH has no effect there
+                              # (nginx conf file hasn't been compiled at this
+                              # stage
+  export KONG_LUA_PACKAGE_PATH="$lua_path"
+}
