@@ -2,8 +2,8 @@
 # some ssh-related functions
 
 function set_kong_env {
-  local lua_path=";;"
   local kong_plugins
+  local lua_path=";;$PWD/?.lua;$PWD/?/init.lua"
 
   for plugin_path in $KONG_PLUGINS_DIR/*; do
     lua_path="$lua_path;$plugin_path/?.lua"
