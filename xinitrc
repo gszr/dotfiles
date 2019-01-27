@@ -5,6 +5,8 @@ command -v imwheel && imwheel
 
 command -v dunst && dunst &
 command -v xbindkeys && xbindkeys
+
+#command -v xflux && xflux -l -16.68 -g -49.26
 command -v xflux && xflux -z 94102
 
 xset b off
