@@ -86,7 +86,8 @@ alias https='http --default-scheme=https'
 alias dm='docker-machine'
 alias dc='docker-compose'
 alias m='mbsync -a'
-alias kr="kong migrations reset --yes && kong migrations up && kong restart"
+alias kong='bin/kong'
+alias kr="kong migrations reset --yes; kong migrations bootstrap; kong restart"
 alias vi="vim"
 alias screen_on="xrandr --auto --output DP1 --left-of eDP1 --auto --mode 2560x1440"
 alias screen_off="xrandr --output DP1 --off"

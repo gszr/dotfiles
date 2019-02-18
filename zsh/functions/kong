@@ -21,3 +21,42 @@ function set_kong_env {
                               # stage
   export KONG_LUA_PACKAGE_PATH="$lua_path"
 }
+
+function kong_new_service {
+  local name=$1
+  local url=$2
+
+  if [[ -z $name ]]; then
+    name="s1"
+  fi
+
+  if [[ -z $url ]]; then
+    url="http://httpbin.org"
+  fi
+
+  curl -s -XPOST localhost:8001/services --data name=$name --data url=$url
+}
+
+function kong_new_route {
+  local service_name=$1
+  local name=$2
+  local r_path=$3
+
+  if [[ -z $name ]]; then
+    name="r1"
+  fi
+
+  if [[ -z $r_path ]]; then
+    r_path="/"
+  fi
+
+  curl -s -XPOST localhost:8001/services/$service_name/routes --data name=$name --data paths=$r_path
+}
+
+function kong_new_service_route {
+  local service_url=$1
+  local route_path=$1
+
+  kong_new_service "s1" "http://httpbin.org" | jq .
+  kong_new_route "s1" "r1" "/" | jq .
+}
