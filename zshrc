@@ -64,6 +64,7 @@ alias gk='git checkout'
 alias gm='git merge'
 alias gf='git fetch'
 alias gr='git rebase'
+alias grc='git rebase --continue'
 alias gl='git log --oneline'
 
 ## Vagrant
