@@ -15,7 +15,7 @@ function set_kong_plugins_env {
   # enable all plugins
   export LUA_PATH="$lua_path"
   export KONG_LUA_PACKAGE_PATH="$lua_path"
-  export KONG_CUSTOM_PLUGINS="$kong_plugins"
+  export KONG_PLUGINS="$kong_plugins"
 }
 
 function set_kong_env {
