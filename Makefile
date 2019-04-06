@@ -20,6 +20,8 @@ CFG += tmux.conf
 CFG += config/kitty
 CFG += config/alacritty
 CFG += config/redshift.conf
+CFG += gnupg/gpg.conf
+CFG += gnupg/gpg-agent.conf
 
 # those are **disabled** under Mac
 OS != uname -s
