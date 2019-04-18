@@ -65,10 +65,12 @@ alias gm='git merge'
 alias gf='git fetch'
 alias gr='git rebase'
 alias grc='git rebase --continue'
+alias grm='git rebase -i master'
 alias gl='git log --oneline'
 
 ## Vagrant
 alias vd='vagrant destroy'
+alias vd!='vagrant destroy -f'
 alias vu='vagrant up'
 alias vh='vagrant halt'
 alias vr='vagrant reload'
