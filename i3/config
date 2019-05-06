@@ -72,7 +72,8 @@
   set $src2 "VGA1"
 
 ## Numerical workspaces
-  bindsym $mod+Escape workspace next
+  bindsym $mod+Shift+Tab workspace prev
+  bindsym $mod+Tab workspace next
   bindsym $mod+1 workspace 1
   bindsym $mod+2 workspace 2
   bindsym $mod+3 workspace 3
