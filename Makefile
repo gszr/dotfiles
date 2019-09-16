@@ -10,7 +10,7 @@ CFG += dircolors
 CFG += urlview
 CFG += mutt
 CFG += msmtprc
-#CFG += mbsyncrc
+CFG += mbsyncrc
 CFG += xbindkeysrc
 CFG += offlineimaprc
 CFG += offlineimap.py
@@ -41,6 +41,7 @@ CFG += imwheelrc
 
 VIM  = https://github.com/altercation/vim-colors-solarized
 VIM += https://github.com/vimwiki/vimwiki
+VIM += https://github.com/mhinz/vim-rfc
 
 .endif
 

@@ -4,22 +4,26 @@
 function set_kong_plugins_env {
   local kong_plugins
   local lua_path="$LUA_PATH"
+  local ignores="$1"
 
   # set path for all Kong plugins
   for plugin_path in $KONG_PLUGINS_DIR/*; do
-    lua_path="$lua_path;$plugin_path/?.lua"
-    lua_path="$lua_path;$plugin_path/?/init.lua"
-    kong_plugins="${kong_plugins:+$kong_plugins,}$(basename $plugin_path/kong/plugins/*)"
+      lua_path="$lua_path;$plugin_path/?.lua"
+      lua_path="$lua_path;$plugin_path/?/init.lua"
+      kong_plugins="${kong_plugins:+$kong_plugins,}$(basename $plugin_path/kong/plugins/*)"
   done
 
   # enable all plugins
   export LUA_PATH="$lua_path"
   export KONG_LUA_PACKAGE_PATH="$lua_path"
+  echo $kong_plugins
   export KONG_PLUGINS="$kong_plugins"
 }
 
 function set_kong_env {
-  local lua_path=";;$PWD/?.lua;$PWD/?/init.lua"
+  eval $(luarocks path)
+  local kong_dir="${1:-$PWD}"
+  local lua_path="$LUA_PATH;;$kong_dir/?.lua;$kong_dir/?/init.lua"
 
   export LUA_PATH="$lua_path" # kong migrations up needs this,
                               # since KONG_LUA_PACKAGE_PATH has no effect there

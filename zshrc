@@ -3,6 +3,7 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 zstyle ':completion:*:complete:*make:*:variables' hidden yes
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu select
+zstyle ':completion:*' keep-prefix true
 
 fpath=($ZSH/completions $fpath)
 
@@ -94,8 +95,8 @@ alias m='mbsync -a'
 alias kong='bin/kong'
 alias kr="kong migrations reset --yes; kong migrations bootstrap; kong restart"
 alias vi="vim"
-alias screen_on="xrandr --auto --output DP1 --left-of eDP1 --auto --mode 2560x1440"
-alias screen_off="xrandr --output DP1 --off"
+alias screen_on="xrandr --output DP1 --right-of eDP1 --auto --mode 3840x2160; xrandr --output DP2 --right-of DP1 --auto --mode 2560x1440"
+alias screen_off="xrandr --output DP1 --off; xrandr --output DP2 --off"
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   alias vim="/usr/local/bin/vim"

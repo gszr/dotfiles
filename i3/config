@@ -65,11 +65,12 @@
   bindsym $mod+F8  exec --no-startup-id cmus-remote -r
 
   bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -n
-  exec_always --no-startup-id feh --bg-scale $HOME/.wallpaper
+  exec_always --no-startup-id feh --bg-fill $HOME/.wallpaper
 
 # Workspace-related
-  set $scr1 "LVDS1"
-  set $src2 "VGA1"
+  set $src1 DP1
+  set $src2 DP2
+  set $src3 eDP1
 
 ## Numerical workspaces
   bindsym $mod+Shift+Tab workspace prev
@@ -98,17 +99,16 @@
   bindsym $mod+Shift+0 move container to workspace 10
   bindsym $mod+Shift+s move container to workspace slack
 
-  workspace 1  output $scr1
-  workspace 2  output $scr1
-  workspace 3  output $scr1
-  workspace 4  output $scr1
-  workspace 5  output $scr1
-  workspace 6  output $scr1
-  workspace 7  output $scr1
-  workspace 8  output $scr1
-  workspace 9  output $scr1
-  workspace 10 output $scr1
-  workspace slack output $src1
+  workspace 1  output $src1
+  workspace 2  output $src1
+  workspace 3  output $src1
+  workspace 4  output $src1
+  workspace 5  output $src1
+  workspace 6  output $src2
+  workspace 7  output $src2
+  workspace 8  output $src2
+  workspace 9  output $src2
+  workspace slack output $src2
 
 ## Software-workspace bindings
   for_window [class="Lxappearance"] floating enable
@@ -159,7 +159,7 @@
       background #000000
     }
 
-    tray_output primary
+    tray_output $src3
     position bottom
   }
 

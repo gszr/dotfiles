@@ -1,0 +1,6 @@
+## vim: filetype=zsh
+
+function set_konvoy_env {
+  export PATH=$PATH:$PWD/build/artifacts/konvoyctl/
+  export PATH=$PATH:$PWD/build/artifacts/konvoy-dataplane/
+}

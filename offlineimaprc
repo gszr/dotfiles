@@ -3,19 +3,10 @@
 #
 
 [general]
-accounts = personal,work
+accounts = personal
 pythonfile = ~/.offlineimap.py
 fsync = no
 ui = basic
-
-#[mbnames]
-#enabled = yes
-#filename = ~/mail/mailboxes
-#header = "mailboxes "
-#peritem = "+%(accountname)s/%(foldername)s"
-#sep = " "
-#footer = "\n"
-
 
 #
 # PERSONAL
@@ -24,9 +15,8 @@ ui = basic
 [Account personal]
 localrepository = personal_local
 remoterepository = personal_remote
-autorefresh = 0.5
-holdconnectionopen = yes
-maxconnections = 1
+autorefresh = 10
+holdconnectionopen = no
 
 [Repository personal_local]
 type = Maildir
@@ -35,43 +25,11 @@ localfolders = ~/mail/personal
 [Repository personal_remote]
 type = IMAP
 remoteport = 993
-remotehost = imap.mailbox.org
-remoteuser = m@gszr.org
-remotepasseval = get_password("personal")
-usecompression = yes
-ssl = yes
-sslcacertfile = /etc/ssl/cert.pem
-folderfilter = lambda foldername: foldername in [
-  'Archive',
-  'INBOX',
-  'Sent'
-  ]
-
-
-#
-# WORK
-#
-
-[Account work]
-localrepository = work_local
-remoterepository = work_remote
-autorefresh = 0.5
-holdconnectionopen = yes
-maxconnections = 3
-quick = 10
-
-[Repository work_local]
-type = Maildir
-localfolders = ~/mail/work
-
-[Repository work_remote]
-type = IMAP
-remoteport = 993
 remotehost = imap.gmail.com
-remoteuser = gs@konghq.com
-remotepasseval = get_password("work")
-ssl = yes
-sslcacertfile = /usr/local/etc/openssl/cert.pem
-folderfilter = lambda foldername: foldername in [
-  '[Gmail]/Sent Mail'
-  ]
+remoteuser = gsz@acm.org
+remotepasseval = get_password("personal")
+maxconnections = 4
+ssl = yes 
+ssl_version = tls1_2
+sslcacertfile = /etc/ssl/cert.pem
+
