@@ -10,7 +10,7 @@ set dir=~/.vim/swap
 set nobackup
 
 " General
-set clipboard=unnamedplus
+set clipboard=unnamed
 set mouse=a
 set ttyfast
 set splitright
@@ -21,7 +21,8 @@ set number
 set relativenumber
 set title
 set ruler
-set nowrap
+set wrap
+set textwidth=90
 set spelllang=en_us,pt
 set spell
 set nofoldenable
@@ -55,7 +56,7 @@ set titleold=""
 set titlestring=vim
 syntax on
 
-set background=dark
+set background=light
 
 colorscheme solarized
 
