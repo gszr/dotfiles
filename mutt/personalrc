@@ -3,11 +3,11 @@
 set signature = ~/.mutt/p_sig
 set folder = $MAIL/personal/
 set sendmail = "msmtp -a personal"
-set spoolfile = "+INBOX"
-set postponed = "+[Gmail].Drafts"
-set record = "+[Gmail].Sent Mail"
-set trash = "+[Gmail].Trash"
-set mbox = "+[Gmail].All Mail"
+set spoolfile = "+Inbox"
+set postponed = "+Drafts"
+set record = "+Sent"
+set trash = "+Trash"
+set mbox = "+Archive"
 set from = "Guilherme Salazar <gsz@acm.org>"
 
 unmailboxes *

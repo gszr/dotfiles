@@ -21,15 +21,20 @@ holdconnectionopen = no
 [Repository personal_local]
 type = Maildir
 localfolders = ~/mail/personal
+nametrans = lambda folder: {
+  'Inbox': 'INBOX'}.get(folder, folder)
 
 [Repository personal_remote]
 type = IMAP
 remoteport = 993
-remotehost = imap.gmail.com
-remoteuser = gsz@acm.org
+remotehost = imap.fastmail.com
+remoteuser = gsz@fastmail.com
 remotepasseval = get_password("personal")
 maxconnections = 4
 ssl = yes 
 ssl_version = tls1_2
 sslcacertfile = /etc/ssl/cert.pem
-
+nametrans = lambda folder: {
+  'INBOX': 'Inbox'}.get(folder, folder)
+#folderfilter = lambda folder: folder in (
+#  'INBOX', '[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail]/Drafts')
