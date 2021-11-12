@@ -1,6 +1,6 @@
 # vim: filetype=zsh
 
-export CODE=$HOME/code
+export CODE=$HOME/Code
 export MAIL=$HOME/mail
 
 export CONF=$CODE/dotfiles
@@ -47,12 +47,7 @@ fi
 # Luarocks
 export PATH="$PATH:/opt/luarocks/bin"
 
-# OpenResty
-if [[ "$OSTYPE" = "darwin"* ]]; then
-  export RESTY_PATH="/usr/local/opt/openresty"
-else
-  export RESTY_PATH="/opt/openresty"
-fi
+export RESTY_PATH="/opt/openresty"
 
 export PATH="$PATH:$RESTY_PATH/bin"
 export PATH="$PATH:$RESTY_PATH/luajit/bin"
@@ -66,7 +61,7 @@ export KONG_COMPOSE="$KONG/kong-tests-compose"
 # Kong config
 export KONG_ANONYMOUS_REPORTS=false
 export KONG_LOG_LEVEL="notice"
-export KONG_NGINX_WORKER_PROCESSES="$(nproc 2>/dev/null || gnproc)"
+export KONG_NGINX_WORKER_PROCESSES=2
 export KONG_PREFIX="./servroot_dev"
 
 # Kong vagrant

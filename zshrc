@@ -93,7 +93,7 @@ alias dc='docker-compose'
 alias lr='luarocks'
 alias m='mbsync -a'
 alias kong='bin/kong'
-alias kr="kong migrations reset --yes; kong migrations bootstrap; kong restart"
+alias kr="set_kong_env; kong migrations reset --yes; kong migrations bootstrap; kong restart"
 alias vi="vim"
 alias screen_on="xrandr --output DP1 --right-of eDP1 --auto --mode 3840x2160; xrandr --output DP2 --right-of DP1 --auto --mode 2560x1440"
 alias screen_off="xrandr --output DP1 --off; xrandr --output DP2 --off"
@@ -129,11 +129,12 @@ PROMPT='$(ssh_get_info)%c%{$fg[blue]%} $ %{$reset_color%}'
 RPROMPT='$(zsh_get_rprompt)'
 
 if hash dircolors &> /dev/null; then
-  eval `dircolors ~/.dircolors`
+  eval `dircolors -b`
   zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 fi
 
 if hash gdircolors &> /dev/null; then
-  eval `gdircolors ~/.dircolors`
+  eval `gdircolors -b`
   zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 fi
+
