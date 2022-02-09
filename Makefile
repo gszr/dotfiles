@@ -20,6 +20,7 @@ CFG += tmux.conf
 CFG += config/kitty
 CFG += config/alacritty
 CFG += config/redshift.conf
+CFG += config/user-dirs.dirs
 CFG += gnupg/gpg.conf
 CFG += gnupg/gpg-agent.conf
 
