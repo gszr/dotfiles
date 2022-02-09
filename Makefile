@@ -43,6 +43,7 @@ CFG += imwheelrc
 VIM  = https://github.com/altercation/vim-colors-solarized
 VIM += https://github.com/vimwiki/vimwiki
 VIM += https://github.com/mhinz/vim-rfc
+VIM += https://github.com/ruanyl/vim-gh-line.git
 
 .endif
 
