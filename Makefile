@@ -148,3 +148,4 @@ clean-misc:
 	@echo "Cleaning urxvt, X solarized..."
 	rm -f ~/.urxvt/ext
 	rm -rf Xsolarized
+	rm -rf bin
