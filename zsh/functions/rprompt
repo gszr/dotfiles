@@ -1,7 +1,28 @@
 # vim: filetype=zsh
 
+# shamelessly copied from 
+# https://unix.stackexchange.com/questions/295679/how-can-i-profile-prompt-rendering-time-in-zsh
+
 function zsh_get_rprompt() {
   if git_is_repo; then
     echo $(git_get_info)
   fi
+}
+
+typeset -F SECONDS start
+
+precmd () {
+    start=$SECONDS
+}
+
+zle-line-init () {
+     PREDISPLAY="[$(( $SECONDS - $start ))] "
+}
+
+function prompt_debug() {
+  zle -N zle-line-init
+}
+
+function prompt_debug_off() {
+  zle -D zle-line-init
 }

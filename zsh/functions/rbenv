@@ -1,0 +1,4 @@
+hash rbenv &> /dev/null || echo "WARN: could not find rbenv
+
+eval "$(rbenv init - zsh)"
+export PATH="$HOME/.rbenv/bin:$PATH"
