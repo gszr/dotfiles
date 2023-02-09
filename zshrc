@@ -98,10 +98,6 @@ alias vi="vim"
 alias screen_on="xrandr --output DP1 --right-of eDP1 --auto --mode 3840x2160; xrandr --output DP2 --right-of DP1 --auto --mode 2560x1440"
 alias screen_off="xrandr --output DP1 --off; xrandr --output DP2 --off"
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  alias vim="/usr/local/bin/vim"
-fi
-
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
 zle -A backward-kill-line vi-kill-line
@@ -115,10 +111,6 @@ bindkey -a "j" history-beginning-search-forward
 # Cannot be in zprofile, since current tty can be
 # different from the login shell's
 export GPG_TTY=$(tty)
-
-function precmd {
-  gpg-connect-agent updatestartuptty /bye &> /dev/null
-}
 
 # autoload some functions
 for f ($(find $ZSH/functions/ -type f)); do
