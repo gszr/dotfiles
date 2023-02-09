@@ -17,7 +17,6 @@ CFG += offlineimap.py
 CFG += gitignore_global
 CFG += config/nvim
 CFG += tmux.conf
-CFG += config/kitty
 CFG += config/alacritty
 CFG += config/redshift.conf
 CFG += config/user-dirs.dirs
