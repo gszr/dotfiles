@@ -2,12 +2,12 @@
 # some git-related functions
 
 function git_is_repo() {
-  #test -z "$(git status 2>&1 | grep -i "not a git repository")"
-  git status &> /dev/null
+  [ -d .git ]
 }
 
 function git_is_dirty() {
-  git status | grep "Untracked\|not staged" &> /dev/null
+  git update-index -q --ignore-submodules --refresh
+  ! git diff-files --quiet --ignore-submodules
 }
 
 function git_not_staged() {
@@ -29,18 +29,14 @@ function git_get_status() {
 }
 
 function git_num_ahead() {
-  local branch=$(git_get_branch)
-  local ahead=$(git rev-list --count origin/$branch..$branch 2>/dev/null)
-  if [[ $ahead -gt 0 ]]; then
-    echo ":$ahead"
-  fi
+  git rev-list --count @{u}..
 }
 
 function git_get_branch() {
-  echo $(git branch | grep "^\*" | cut -d ' ' -f2)
+  git symbolic-ref --short HEAD
 }
 
 function git_get_info() {
-  echo "(git:$(git_get_branch):$(git_get_status)$(git_num_ahead))"
+  echo "(git:`git_get_branch`:`git_get_status`:`git_num_ahead`)"
 }
 
