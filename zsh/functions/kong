@@ -1,6 +1,21 @@
 # vim: filetype=zsh
 # some ssh-related functions
 
+# Kong paths
+export WORK="$CODE"
+export KONG_PLUGINS_DIR="$WORK/kong-plugins"
+export KONG_VAGRANT="$WORK/kong-vagrant"
+export KONG_COMPOSE="$WORK/kong-tests-compose"
+
+# Kong config
+export KONG_ANONYMOUS_REPORTS=false
+export KONG_LOG_LEVEL="notice"
+export KONG_NGINX_WORKER_PROCESSES=2
+export KONG_PREFIX="./servroot_dev"
+
+# Kong vagrant
+export KONG_UTILITIES=yes
+
 function set_kong_plugins_env {
   local kong_plugins
   local lua_path="$LUA_PATH"
@@ -52,6 +67,10 @@ function kong_new_route {
   local service_name=$1
   local name=$2
   local r_path=$3
+
+  if [[ -z $service_name ]]; then
+    service_name="s1"
+  fi
 
   if [[ -z $name ]]; then
     name="r1"

@@ -1,6 +1,11 @@
 # vim: filetype=zsh
 
 export CODE=$HOME/code
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export CODE=$HOME/Code
+fi
+
 export MAIL=$HOME/mail
 
 export CONF=$CODE/dotfiles
@@ -18,7 +23,7 @@ export PAGER=less
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   eval $(/usr/libexec/path_helper)
-  export PATH="$PATH:/usr/local/bin:/usr/local/sbin"
+  eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
 if [[ "$(uname -s)" == "NetBSD" ]]; then
@@ -52,21 +57,6 @@ export RESTY_PATH="/opt/openresty"
 export PATH="$PATH:$RESTY_PATH/bin"
 export PATH="$PATH:$RESTY_PATH/luajit/bin"
 
-# Kong paths
-export KONG="$CODE/work"
-export KONG_PLUGINS_DIR="$KONG/kong-plugins"
-export KONG_VAGRANT="$KONG/kong-vagrant"
-export KONG_COMPOSE="$KONG/kong-tests-compose"
-
-# Kong config
-export KONG_ANONYMOUS_REPORTS=false
-export KONG_LOG_LEVEL="notice"
-export KONG_NGINX_WORKER_PROCESSES=2
-export KONG_PREFIX="./servroot_dev"
-
-# Kong vagrant
-export KONG_UTILITIES=yes
-
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_MAKE_JOBS=$(( $(nproc 2> /dev/null || gnproc) + 1 ))
@@ -75,3 +65,4 @@ export LANG="en_US.UTF-8" export LC_CTYPE="en_US.UTF-8" export LC_ALL=""
 
 eval $(gpg-agent --daemon)
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
