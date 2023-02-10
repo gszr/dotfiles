@@ -1,4 +1,2 @@
-machine
-daemon.json
-config.json
-.buildNodeID
+*
+!config.json.template
