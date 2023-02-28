@@ -28,7 +28,7 @@ set number
 set relativenumber
 set title
 set ruler
-set wrap
+set nowrap
 set textwidth=90
 set spelllang=en_us,pt
 set spell
@@ -70,8 +70,14 @@ colorscheme solarized
 " Keybindings
 cmap w!! w !sudo tee > /dev/null %
 
+function! SearchVimwiki()
+	let pattern = input('search pattern: ')
+	execute 'VimwikiSearch '.pattern
+endfunction
+map <leader>ws :call SearchVimwiki()<CR>
+
 let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path': "~/wiki"}]
-let g:vimwiki_global_ext = 0
+"let g:vimwiki_global_ext = 0
 let g:vimwiki_folding=''
 
 " Per-language indentation behavior
