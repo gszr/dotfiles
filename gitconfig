@@ -32,3 +32,6 @@
 #	insteadOf = https://github.com/
 [pull]
 	rebase = true
+
+[submodule]
+	recursive = false
