@@ -63,8 +63,8 @@ all:
 install: prepare link
 
 prepare: \
+	prepare-dynamic-colors \
 	prepare-vim-plugins \
-	prepare-solarized \
 	prepare-urxvt \
 	prepare-docker \
 	prepare-dircolors \
@@ -86,9 +86,9 @@ prepare-vim:
 	mkdir -p ${VIM_DIR}
 	mkdir -p vim/swap
 
-prepare-solarized:
-	@echo "Preparing X Solarized"
-	git clone https://github.com/solarized/xresources Xsolarized
+prepare-dynamic-colors:
+	@echo "Preparing dynamic colors"
+	git clone https://github.com/sos4nt/dynamic-colors.git ~/.dynamic-colors
 
 prepare-urxvt:
 	@echo "Preparing urxvt..."
@@ -147,7 +147,7 @@ clean-vim:
 	rm -rf vim/swap
 
 clean-misc:
-	@echo "Cleaning urxvt, X solarized..."
+	@echo "Cleaning urxvt"
 	rm -f ~/.urxvt/ext
-	rm -rf Xsolarized
 	rm -rf bin
+	rm -rf ~/.dynamic-colors

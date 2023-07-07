@@ -1,0 +1,11 @@
+
+if [ -d ~/.dynamic-colors ]; then
+	export PATH="$HOME/.dynamic-colors/bin:$PATH"
+	source $HOME/.dynamic-colors/completions/dynamic-colors.zsh
+	dynamic-colors init
+	function cycle { dynamic-colors cycle }
+	zle -N cycle
+	bindkey "^B" cycle
+else
+	echo "<WARN> dynamic-colors not found - install it! https://github.com/sos4nt/dynamic-colors"
+fi

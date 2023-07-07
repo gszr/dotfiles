@@ -1,6 +1,3 @@
-! X colors
-#include "Xresources.dark"
-
 ! urxvt
 URxvt*depth:             32
 URxvt*transparent:       false
@@ -26,17 +23,7 @@ URxvt*boldFont:       xft:DejaVu Sans Mono:bold:pixelsize=24
 URxvt*italicFont:     xft:DejaVu Sans Mono:italic:pixelsize=24
 URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:pixelsize=24
 
-! urxvt keybindings
-URxvt.keysym.S-Up:    \033[1;2A
-URxvt.keysym.S-Down:  \033[1;2B
-URxvt.keysym.S-Right: \033[1;2C
-URxvt.keysym.S-Left:  \033[1;2D
-URxvt.keysym.C-Up:    \033[1;5A
-URxvt.keysym.C-Down:  \033[1;5B
-URxvt.keysym.C-Right: \033[1;5C
-URxvt.keysym.C-Left:  \033[1;5D
-URxvt.keysym.C-Home:  \033[1;5H
-URxvt.keysym.C-End:   \033[1;5F
+urxvt*dynamicColors: on
 
 ! urxvt extensions
 URxvt.perl-ext-common: default,matcher,fork-here,font-size
