@@ -69,6 +69,7 @@ colorscheme solarized
 
 " Keybindings
 cmap w!! w !sudo tee > /dev/null %
+map <leader>n :noh<CR>
 
 function! SearchVimwiki()
 	let pattern = input('search pattern: ')
