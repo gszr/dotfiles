@@ -88,15 +88,16 @@ alias clipout='xclip -out -selection clipboard'
 alias coqtop='rlwrap coqtop'
 alias luajit='rlwrap luajit'
 alias https='http --default-scheme=https'
-alias dm='docker-machine'
-alias dc='docker-compose'
+alias dm='docker machine'
+alias dc='docker compose'
 alias lr='luarocks'
 alias m='mbsync -a'
 alias kong='bin/kong'
 alias kr="kong migrations reset --yes; kong migrations bootstrap; kong restart"
 alias vi="vim"
-alias screen_on="xrandr --output DP1 --right-of eDP1 --auto --mode 3840x2160; xrandr --output DP2 --right-of DP1 --auto --mode 2560x1440"
-alias screen_off="xrandr --output DP1 --off; xrandr --output DP2 --off"
+alias screen_on="xrandr --output DP1 --right-of eDP1 --auto --mode 3840x2160"
+alias screen_off="xrandr --output DP1 --off"
+alias today='date "+%-Y-%m-%d"'
 
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
