@@ -3,10 +3,10 @@
 "xbacklight -inc 5"
   XF86MonBrightnessUp
 
-"amixer -q set Master 5%+"
+"pulsemixer --change-volume +5"
   XF86AudioRaiseVolume
-"amixer -q set Master 5%-"
+"pulsemixer --change-volume -5"
   XF86AudioLowerVolume
 
-"amixer -q set Master toggle"
+"pulsemixer --toggle-mute"
   XF86AudioMute
