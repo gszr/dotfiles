@@ -76,7 +76,9 @@ prepare-self:
 prepare-vim-plugins: prepare-vim
 	@echo "Preparing VIM plugins"
 .for plg in ${VIM}
+.if ! exists(${VIM_DIR}/${plg})
 	git -C ${VIM_DIR} clone ${plg}
+.endif
 .endfor
 
 prepare-vim:
