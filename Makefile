@@ -69,9 +69,12 @@ prepare: \
 	prepare-docker \
 	prepare-dircolors \
 	prepare-zsh \
-	prepare-bin
+	prepare-bin \
+	prepare-gnupg
 
-prepare-self:
+prepare-gnupg:
+	@echo "Preparing gnupg..."
+	[ ! -d ~/.gnupg ] && mkdir -p ~/.gnupg && chmod 600 ~/.gnupg || echo "~/.gnupg exists..."
 
 prepare-vim-plugins: prepare-vim
 	@echo "Preparing VIM plugins"

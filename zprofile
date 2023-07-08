@@ -63,6 +63,6 @@ export HOMEBREW_MAKE_JOBS=$(( $(nproc 2> /dev/null || gnproc) + 1 ))
 
 export LANG="en_US.UTF-8" export LC_CTYPE="en_US.UTF-8" export LC_ALL=""
 
-eval $(gpg-agent --daemon)
+gpg-agent --daemon
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
