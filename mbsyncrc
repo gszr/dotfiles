@@ -2,6 +2,7 @@ SyncState *
 Sync All
 Expunge Both
 Create Both
+CopyArrivalDate yes
 
 IMAPAccount personal
 Host imap.fastmail.com
@@ -18,9 +19,7 @@ Path ~/mail/personal/
 Inbox ~/mail/personal/Inbox
 SubFolders Verbatim
 
-CopyArrivalDate yes
-
 Channel personal
-Master :personal-remote:
-Slave :personal-local:
+Far :personal-remote:
+Near :personal-local:
 Patterns *
