@@ -1,4 +1,3 @@
-
 # dotfiles
 CFG  = bin
 CFG += vim
@@ -71,7 +70,12 @@ prepare: \
 	prepare-dircolors \
 	prepare-zsh \
 	prepare-bin \
-	prepare-gnupg
+	prepare-gnupg \
+	prepare-mail
+
+prepare-mail:
+	mkdir -p ~/mail/personal
+	mkdir -p ~/mail/work
 
 prepare-gnupg:
 	@echo "Preparing gnupg..."
