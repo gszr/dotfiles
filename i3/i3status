@@ -34,8 +34,7 @@ battery 0 {
 
 volume master {
 	format = " ♪ %volume "
-	device = "default"
-	mixer  = "Master"
+	device = "pulse"
 }
 
 tztime local {
