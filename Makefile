@@ -21,6 +21,7 @@ CFG += tmux.conf
 CFG += config/alacritty
 CFG += config/redshift.conf
 CFG += config/user-dirs.dirs
+CFG += config/dunstrc
 CFG += gnupg/gpg.conf
 CFG += gnupg/gpg-agent.conf
 
