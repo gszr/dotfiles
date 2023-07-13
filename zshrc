@@ -109,10 +109,6 @@ bindkey -v
 bindkey -a "k" history-beginning-search-backward
 bindkey -a "j" history-beginning-search-forward
 
-# Cannot be in zprofile, since current tty can be
-# different from the login shell's
-export GPG_TTY=$(tty)
-
 # autoload some functions
 for f ($(find $ZSH/functions/ -type f)); do
   source $f

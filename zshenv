@@ -1,3 +1,2 @@
-
 export GPG_TTY=$(tty)
-. "$HOME/.cargo/env"
+gpg-connect-agent updatestartuptty /bye >/dev/null
