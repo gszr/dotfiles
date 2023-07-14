@@ -28,6 +28,7 @@ files:
   config/nvim:
   tmux.conf:
   config/alacritty:
+    os: macos
   config/redshift.conf:
   config/user-dirs.dirs:
   gnupg/gpg.conf: # gnupg needs special perms (600?)
