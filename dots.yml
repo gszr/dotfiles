@@ -1,0 +1,35 @@
+files:
+  i3:
+    os: linux # os flag is NYI!
+  xinitrc:
+    os: linux
+  Xresources:
+    os: linux
+  imwheelrc:
+    os: linux
+  xbindkeysrc:
+    os: linux
+  bin:
+  docker/config.json:
+    typ: copy
+  vim:
+  zshrc:
+  zshenv:
+  zprofile:
+  gitconfig:
+  dircolors:
+  urlview:
+  mutt:
+  msmtprc:
+  mbsyncrc:
+  offlineimaprc:
+  offlineimap.py:
+  gitignore_global:
+  config/nvim:
+  tmux.conf:
+  config/alacritty:
+  config/redshift.conf:
+  config/user-dirs.dirs:
+  gnupg/gpg.conf: # gnupg needs special perms (600?)
+  gnupg/gpg-agent.conf:
+  dynamic-colors:
