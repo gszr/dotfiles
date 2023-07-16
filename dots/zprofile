@@ -6,11 +6,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   export CODE=$HOME/Code
 fi
 
-export MAIL=$HOME/mail
-
-export CONF=$CODE/dotfiles
-export ZSH=$CONF/zsh
-
 export CVS_RSH="ssh"
 export CVSROOT="salazar@cvs.NetBSD.org:/cvsroot"
 export ANONCVS="anoncvs@anoncvs.NetBSD.org:/cvsroot"
