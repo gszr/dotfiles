@@ -1,5 +1,5 @@
-**vim/swap
-**vim/.netrwhist
-**gnupg/
-!**gnupg/gpg.conf
-!**gnupg/gpg-agent.conf
+**/vim/swap
+**/vim/.netrwhist
+**/gnupg/
+!**/gnupg/gpg.conf
+!**/gnupg/gpg-agent.conf

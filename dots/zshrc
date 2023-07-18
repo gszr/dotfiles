@@ -94,7 +94,7 @@ alias lr='luarocks'
 alias m='mbsync -a'
 alias kong='bin/kong'
 alias kr="kong migrations reset --yes; kong migrations bootstrap; kong restart"
-alias vi="vim"
+alias vi="nvim"
 alias screen_on="xrandr --output DP1 --right-of eDP1 --auto --mode 3840x2160"
 alias screen_off="xrandr --output DP1 --off"
 alias today='date "+%-Y-%m-%d"'
@@ -127,3 +127,4 @@ if hash gdircolors &> /dev/null; then
   zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 fi
 
+export GPG_TTY=$(tty)

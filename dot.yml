@@ -14,7 +14,6 @@ files:
     typ: copy
   vim:
   zshrc:
-  zshenv:
   zprofile:
   gitconfig:
   dircolors:

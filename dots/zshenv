@@ -1,6 +1,0 @@
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
-
-export MAIL=$HOME/mail
-export CONF=$CODE/dotfiles
-export ZSH=$CONF/dots/zsh

@@ -61,3 +61,6 @@ export LANG="en_US.UTF-8" export LC_CTYPE="en_US.UTF-8" export LC_ALL=""
 gpg-agent --daemon
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
+export MAIL=$HOME/mail
+export CONF=$CODE/dotfiles
+export ZSH=$CONF/dots/zsh
