@@ -1,4 +1,4 @@
-files:
+map:
   i3:
     os: linux
   xinitrc:
@@ -11,7 +11,7 @@ files:
     os: linux
   bin:
   docker/config.json:
-    typ: copy
+    as: copy
   vim:
   zshrc:
   zprofile:
@@ -27,12 +27,14 @@ files:
   config/nvim:
   tmux.conf:
   config/alacritty:
-    os: macos
+    os: all
   config/redshift.conf:
   config/user-dirs.dirs:
   gnupg/gpg.conf: # gnupg needs special perms (600?)
   gnupg/gpg-agent.conf:
   dynamic-colors:
+  bin/urxvt-perl:
+    to: ~/.urxvt/ext
 
-files_opts:
-  dir: dots/
+opt:
+  cd: dots/

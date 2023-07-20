@@ -63,4 +63,3 @@ export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
 export MAIL=$HOME/mail
 export CONF=$CODE/dotfiles
-export ZSH=$CONF/dots/zsh
