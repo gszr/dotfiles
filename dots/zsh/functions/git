@@ -1,9 +1,9 @@
 # vim: filetype=zsh
 # some git-related functions
 
-if [ -d ~/gitstatus ]; then
+if [ -d ~/.gitstatus ]; then
 
-  source ~/gitstatus/gitstatus.plugin.zsh
+  source ~/.gitstatus/gitstatus.plugin.zsh
 
   function my_set_prompt() {
     RPROMPT=''
