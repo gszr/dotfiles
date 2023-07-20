@@ -129,3 +129,4 @@ if hash gdircolors &> /dev/null; then
 fi
 
 export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
