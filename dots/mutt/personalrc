@@ -11,10 +11,10 @@ set mbox = "+Archive"
 set from = "Guilherme Salazar <gsz@acm.org>"
 
 unmailboxes *
-mailboxes +INBOX
+mailboxes +Inbox +Inbox/NetBSD +Sent +Archive
 
-macro index F '<shell-escape>echo "Syncing personal mail..."; offlineimap -a personal<enter>'
-macro index,pager a "<save-message>+[Gmail].All Mail<enter><enter>" "Archive"
+macro index F '<shell-escape>echo "Syncing personal mail..."; mbsync -a<enter>'
+macro index,pager a "<save-message>+Inbox/Archive<enter><enter>" "Archive"
 
 folder-hook . "exec collapse-all"
 

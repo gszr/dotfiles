@@ -8,6 +8,7 @@
 	squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
 	clean-all = "!git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin && git reflog expire --expire=now --all && git gc --prune=now"
 	msg = log --format=%B -n1
+	pick = cherry-pick -x
 
 [merge]
 	conflictstyle = diff3
@@ -36,3 +37,4 @@
 
 [submodule]
 	recursive = false
+	recurse = true
