@@ -11,7 +11,7 @@ set mbox = "+Archive"
 set from = "Guilherme Salazar <gsz@acm.org>"
 
 unmailboxes *
-mailboxes +Inbox +Inbox/NetBSD +Sent +Archive
+mailboxes +Inbox +Inbox/netbsd +Inbox/lua-l +Sent +Archive
 
 macro index F '<shell-escape>echo "Syncing personal mail..."; mbsync -a<enter>'
 macro index,pager a "<save-message>+Inbox/Archive<enter><enter>" "Archive"
