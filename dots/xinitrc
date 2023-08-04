@@ -35,7 +35,7 @@ function run {
 }
 
 #run_or_err imwheel && imwheel
-run xflux -l -16.68 -g -49.26
+run redshift -l -16.68:-49.26
 run urxvtd -q -o -f
 run xbindkeys
 run dunst
