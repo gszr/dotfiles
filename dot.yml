@@ -3,6 +3,9 @@ map:
     os: linux
   xinitrc:
     os: linux
+  davfs2:
+    to: ~/.davfs2/davfs2.conf
+    os: linux
   Xresources:
     os: linux
   imwheelrc:
