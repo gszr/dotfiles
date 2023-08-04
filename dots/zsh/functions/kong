@@ -2,7 +2,7 @@
 # some ssh-related functions
 
 # Kong paths
-export WORK="$CODE"
+export WORK="$CODE/work"
 export KONG_PLUGINS_DIR="$WORK/kong-plugins"
 export KONG_VAGRANT="$WORK/kong-vagrant"
 export KONG_COMPOSE="$WORK/kong-tests-compose"
