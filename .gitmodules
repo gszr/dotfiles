@@ -10,6 +10,6 @@
 [submodule "vim/pack/plugins/start/vimwiki"]
 	path = dots/vim/pack/plugins/start/vimwiki
 	url = https://github.com/vimwiki/vimwiki
-[submodule "dynamic-colors"]
+[submodule "dots/dynamic-colors"]
 	path = dots/dynamic-colors
-	url = https://github.com/sos4nt/dynamic-colors
+	url = git@github.com:gszr/dynamic-colors.git
