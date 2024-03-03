@@ -3,7 +3,7 @@ map:
     os: linux
   xinitrc:
     os: linux
-  davfs2:
+  davfs2.conf:
     to: ~/.davfs2/davfs2.conf
     os: linux
   Xresources:
@@ -35,6 +35,9 @@ map:
   config/user-dirs.dirs:
   gnupg/gpg.conf: # gnupg needs special perms (600?)
   gnupg/gpg-agent.conf:
+    as: copy
+    with:
+      PinentryPrefix: '{{if eq .Os "darwin"}}/opt/homebrew/bin{{else}}/usr/bin{{end}}'
   dynamic-colors:
   bin/urxvt-perl:
     to: ~/.urxvt/ext
