@@ -2,7 +2,7 @@
 
 #General config
   set $mod Mod1
-  font pango:DejaVu Sans Mono, FontAwesome, Ionicons, 14
+  font pango:DejaVu Sans Mono, FontAwesome, Ionicons, 18
   floating_modifier $mod
   workspace_auto_back_and_forth yes
   hide_edge_borders both
@@ -58,7 +58,7 @@
 # Software-related bindings
   bindsym $mod+Return exec --no-startup-id urxvtc
   bindsym $mod+d exec --no-startup-id dmenu_run
-  bindsym --release Print exec scrot -s -e 'mv $f ~/shots/'
+  bindsym --release Print exec flameshot gui
  
   bindsym $mod+F10 exec --no-startup-id cmus-remote -n
   bindsym $mod+F9  exec --no-startup-id cmus-remote -u
@@ -67,6 +67,7 @@
   bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000 -n
   exec_always --no-startup-id feh --bg-fill $HOME/.wallpaper
   exec_always --no-startup-id blueman-applet
+  exec_always --no-startup-id nm-applet
 
 # Workspace-related
   set $src1 DP1
@@ -86,6 +87,7 @@
   bindsym $mod+9 workspace 9
   bindsym $mod+0 workspace 10
   bindsym $mod+s workspace slack
+  bindsym $mod+z workspace zoom
 
   bindsym $mod+Shift+1 move container to workspace 1
   bindsym $mod+Shift+2 move container to workspace 2
@@ -98,6 +100,7 @@
   bindsym $mod+Shift+9 move container to workspace 9
   bindsym $mod+Shift+0 move container to workspace 10
   bindsym $mod+Shift+s move container to workspace slack
+  bindsym $mod+Shift+z move container to workspace zoom
 
   workspace 1  output $src1
   workspace 2  output $src1
@@ -116,8 +119,10 @@
   for_window [class="Firefox" instance="Places"] floating enable
   for_window [class="GParted"] floating enable
   for_window [class="Thunderbird" instance="Msgcompose"] floating enable
+  for_window [class="zoom" ] floating enable move position center resize set width 60 ppt height 80 ppt
 
   assign [class="^Slack"] "slack"
+  assign [class="^zoom"] "zoom"
 
 ## Steam
 ## https://github.com/ValveSoftware/steam-for-linux/issues/1040
@@ -163,3 +168,4 @@
     position bottom
   }
 
+exec --no-startup-id i3-msg workspace 1
