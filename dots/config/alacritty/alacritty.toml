@@ -1,0 +1,36 @@
+[env]
+TERM = "alacritty"
+
+[font]
+size = 21.0
+
+[font.bold]
+family = "DejaVu Sans Mono"
+style = "Bold"
+
+[font.italic]
+family = "DejaVu Sans Mono"
+style = "Italic"
+
+[font.normal]
+family = "DejaVu Sans Mono"
+
+[shell]
+args = ["-l", "-c", "tmux attach || tmux"]
+program = "/bin/zsh"
+
+[window]
+dynamic_padding = false
+dynamic_title = true
+
+[window.dimensions]
+columns = 0
+lines = 0
+
+[window.padding]
+x = 0
+y = 0
+
+[window.position]
+x = 0
+y = 0
