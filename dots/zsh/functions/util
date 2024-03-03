@@ -37,3 +37,7 @@ function retry {
     echo "Max retries reached; giving up."
   fi
 }
+
+function tainted() {
+  for i in $(seq 18); do echo $(($i-1)) $(($(cat /proc/sys/kernel/tainted)>>($i-1)&1));done
+}
