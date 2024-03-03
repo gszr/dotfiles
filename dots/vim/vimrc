@@ -81,6 +81,8 @@ let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md', 'path': "~/wiki"}]
 "let g:vimwiki_global_ext = 0
 let g:vimwiki_folding=''
 
+autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
+
 " Per-language indentation behavior
 autocmd FileType c   setlocal cinoptions=t0 cindent
 autocmd FileType sh  setlocal expandtab shiftwidth=2 tabstop=2
@@ -93,6 +95,7 @@ autocmd FileType html setlocal expandtab shiftwidth=4 tabstop=4
 autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType conf setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType perl setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType text setlocal nowrap formatoptions-=t
 autocmd FileType markdown setlocal expandtab shiftwidth=2 tabstop=2
 
 let g:markdown_fold_override_foldtext = 0
