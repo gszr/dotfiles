@@ -38,6 +38,8 @@ map:
     as: copy
     with:
       PinentryPrefix: '{{if eq .Os "darwin"}}/opt/homebrew/bin{{else}}/usr/bin{{end}}'
+  ssh/config:
+    as: copy
   dynamic-colors:
   bin/urxvt-perl:
     to: ~/.urxvt/ext
