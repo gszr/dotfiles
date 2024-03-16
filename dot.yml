@@ -15,7 +15,8 @@ map:
   bin:
   docker/config.json:
     as: copy
-  vim:
+  vim/vimrc:
+  vim/spell:
   zshrc:
   zprofile:
   gitconfig:
@@ -40,9 +41,25 @@ map:
       PinentryPrefix: '{{if eq .Os "darwin"}}/opt/homebrew/bin{{else}}/usr/bin{{end}}'
   ssh/config:
     as: copy
-  dynamic-colors:
   bin/urxvt-perl:
     to: ~/.urxvt/ext
+
+fetch:
+- url: https://github.com/gszr/dynamic-colors
+  to: ~/.dynamic-colors
+  as: git
+- url: https://github.com/altercation/vim-colors-solarized
+  to: ~/.vim/pack/plugins/start/vim-colors-solarized
+  as: git
+- url: https://github.com/ruanyl/vim-gh-line
+  to: ~/.vim/pack/plugins/start/vim-gh-line
+  as: git
+- url: https://github.com/mhinz/vim-rfc
+  to: ~/.vim/pack/plugins/start/vim-rfc
+  as: git
+- url: https://github.com/vimwiki/vimwiki
+  to: ~/.vim/pack/plugins/start/vimwiki
+  as: git
 
 opt:
   cd: dots/
