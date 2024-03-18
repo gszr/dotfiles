@@ -34,6 +34,7 @@ map:
     os: all
   config/redshift.conf:
   config/user-dirs.dirs:
+  config/dunst:
   gnupg/gpg.conf: # gnupg needs special perms (600?)
   gnupg/gpg-agent.conf:
     as: copy
