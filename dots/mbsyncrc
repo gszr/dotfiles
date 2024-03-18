@@ -5,8 +5,8 @@ Create Both
 CopyArrivalDate yes
 
 IMAPAccount personal
-Host imap.fastmail.com
-User gsz@fastmail.com
+Host mail.gszr.org
+User m@gszr.org
 PassCmd "echo ${MAILTOKEN-$(pass personal/mail)}"
 SSLType IMAPS
 AuthMechs LOGIN
