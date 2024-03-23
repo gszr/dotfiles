@@ -62,6 +62,9 @@ fetch:
 - url: https://github.com/vimwiki/vimwiki
   to: ~/.vim/pack/plugins/start/vimwiki
   as: git
+- url: https://github.com/romkatv/gitstatus
+  to: ~/.gitstatus
+  as: git
 
 opt:
   cd: dots/
