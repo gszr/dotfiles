@@ -30,6 +30,7 @@ map:
   gitignore_global:
   config/nvim:
   tmux.conf:
+  config/OpenRGB/AllBlue.orp:
   config/alacritty:
     os: all
   config/redshift.conf:
