@@ -5,15 +5,16 @@ TERM = "alacritty"
 size = 16
 
 [font.bold]
-family = "DejaVu Sans Mono"
+family = "Noto Sans Mono"
 style = "Bold"
 
 [font.italic]
-family = "DejaVu Sans Mono"
+family = "Noto Sans Mono"
 style = "Italic"
 
 [font.normal]
-family = "DejaVu Sans Mono"
+family = "Noto Sans Mono"
+style = "Regular"
 
 [shell]
 args = ["-l", "-c", "tmux attach || tmux"]
