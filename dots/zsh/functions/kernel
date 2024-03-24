@@ -1,0 +1,40 @@
+# vim: filetype=zsh
+
+function kern-get-release {
+}
+
+function linux-kern-build {
+  release=$(make -s kernelrelease)
+
+  yes "" | make olddefconfig
+  time=$(time make -j $(nproc --all))
+
+  echo "====> SUCCESS"
+  echo "kernel build time"
+  echo "$time"
+}
+
+function linux-kern-install {
+  release=$(make -s kernelrelease)
+
+  sudo make modules_install
+  sudo install -m 0600 $(make -s image_name) /boot/vmlinuz-$release
+  sudo install -m 0600 System.map /boot/System.map-$release
+
+  if [ "$1" = "with-nvidia" ]; then
+    sudo dkms build --force -m nvidia -v $(modinfo nvidia | grep ^version | awk '{ print $2} ') -k $release
+    sudo dkms install --force -m nvidia -v $(modinfo nvidia | grep ^version | awk '{ print $2} ') -k $release
+  fi
+
+  sudo mkinitcpio \
+    --kernel $release \
+    --generate /boot/initramfs-linux-$release.img
+
+  cat <<-EOF | sudo tee /boot/loader/entries/linux-$release.conf
+		title Arch Linux
+		linux /vmlinuz-$release
+		initrd /initramfs-linux-$release.img
+		initrd /intel-ucode.img
+		options cryptdevice=UUID=aa659f96-b0a1-4a9a-9123-67f6130dabca:cryptroot root=/dev/mapper/cryptroot quiet rw usbcore.autosuspend=-1 nvidia_drm.modeset=1 acpi_enforce_resources=lax
+EOF
+}
