@@ -19,19 +19,21 @@ elseif os == "Linux"
 endif
 
 set mouse=a
+"set ttymouse=xterm2
 set ttyfast
 set splitright
 set backspace=2
-set colorcolumn=81
 set showcmd
 set number
 set relativenumber
 set title
 set ruler
 set nowrap
-set textwidth=90
+set textwidth=80
+set colorcolumn+=80
+hi ColorColumn guibg=#2d2d2d ctermbg=246
 set spelllang=en_us,pt
-set spell
+set nospell
 set nofoldenable
 set formatoptions+=w
 
@@ -64,8 +66,9 @@ set titlestring=vim
 syntax on
 
 set background=dark
-
-colorscheme solarized
+colorscheme lunaperche
+highlight Normal guibg=NONE guifg=NONE
+"set termguicolors
 
 " Keybindings
 cmap w!! w !sudo tee > /dev/null %
