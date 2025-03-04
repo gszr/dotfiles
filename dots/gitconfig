@@ -11,7 +11,7 @@
 	pick = cherry-pick -x
 
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 
 [push]
 	default = simple
@@ -22,8 +22,11 @@
 	precomposeUnicode = true
 
 [diff]
-	tool = vimdiff
-	noprefix = true
+	tool = less
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 
 [pager]
 	log = false
@@ -31,8 +34,9 @@
 [status]
 	showUntrackedFiles = all
 
-#[url "git@github.com:"]
-#	insteadOf = https://github.com/
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
 [pull]
 	rebase = true
 
@@ -41,3 +45,21 @@
 	recurse = true
 [init]
 	defaultBranch = main
+
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoupdate = true
