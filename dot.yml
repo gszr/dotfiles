@@ -28,6 +28,7 @@ map:
   offlineimaprc:
   offlineimap.py:
   gitignore_global:
+    to: ~/.gitignore
   config/nvim:
   tmux.conf:
   config/OpenRGB/AllBlue.orp:
