@@ -33,6 +33,8 @@ map:
   config/OpenRGB/AllBlue.orp:
   config/alacritty:
     os: all
+  config/kitty:
+    os: all
   config/redshift.conf:
   config/user-dirs.dirs:
   config/dunst:
