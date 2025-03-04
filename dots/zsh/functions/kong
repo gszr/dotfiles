@@ -2,7 +2,7 @@
 # some ssh-related functions
 
 # Kong paths
-export WORK="$CODE/work"
+export WORK="$CODE/"
 export KONG_PLUGINS_DIR="$WORK/kong-plugins"
 export KONG_VAGRANT="$WORK/kong-vagrant"
 export KONG_COMPOSE="$WORK/kong-tests-compose"
@@ -57,7 +57,7 @@ function kong_new_service {
   fi
 
   if [[ -z $url ]]; then
-    url="http://httpbin.org"
+    url="http://localhost:8080"
   fi
 
   curl -s -XPOST localhost:8001/services --data name=$name --data url=$url
@@ -87,6 +87,6 @@ function kong_new_service_route {
   local service_url=$1
   local route_path=$1
 
-  kong_new_service "s1" "http://httpbin.org" | jq .
+  kong_new_service "s1" "http://localhost:8080" | jq .
   kong_new_route "s1" "r1" "/" | jq .
 }
