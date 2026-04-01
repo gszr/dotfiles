@@ -6,6 +6,4 @@ if [ -d ~/.dynamic-colors ]; then
 	function cycle { dynamic-colors cycle }
 	zle -N cycle
 	bindkey "^B" cycle
-else
-	echo "<WARN> dynamic-colors not found - install it! https://github.com/sos4nt/dynamic-colors"
 fi
