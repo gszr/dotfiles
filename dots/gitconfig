@@ -18,7 +18,7 @@
 
 [core]
 	editor = vim
-	excludesfile = /home/gs/.gitignore_global
+	excludesFile = ~/.gitignore
 	precomposeUnicode = true
 
 [diff]
@@ -34,11 +34,8 @@
 [status]
 	showUntrackedFiles = all
 
-[url "git@github.com:"]
-	insteadOf = https://github.com/
-
 [pull]
-	rebase = true
+	rebase = false
 
 [submodule]
 	recursive = false
@@ -54,8 +51,6 @@
 	sort = version:refname
 [fetch]
 	prune = true
-	pruneTags = true
-	all = true
 [rebase]
 	autoSquash = true
 	autoStash = true

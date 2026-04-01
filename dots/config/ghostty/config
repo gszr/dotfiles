@@ -1,0 +1,21 @@
+theme = Abernathy
+font-size = 16
+
+# Create splits
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down
+
+# Navigate between splits
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+j=goto_split:down
+
+# Resize splits
+keybind = super+shift+h=resize_split:left,10
+keybind = super+shift+l=resize_split:right,10
+keybind = super+shift+k=resize_split:up,10
+keybind = super+shift+j=resize_split:down,10
+
+# Equalize split sizes
+keybind = super+shift+e=equalize_splits

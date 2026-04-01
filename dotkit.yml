@@ -25,6 +25,7 @@ map:
   mutt:
   msmtprc:
   mbsyncrc:
+  cloudflared:
   offlineimaprc:
   offlineimap.py:
   gitignore_global:
@@ -35,6 +36,8 @@ map:
   config/alacritty:
     os: all
   config/kitty:
+    os: all
+  config/ghostty:
     os: all
   config/redshift.conf:
   config/user-dirs.dirs:

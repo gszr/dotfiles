@@ -1,1 +1,5 @@
 Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
+
+Host *
+	ServerAliveInterval 59
+	ServerAliveCountMax 3
