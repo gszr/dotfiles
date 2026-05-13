@@ -19,3 +19,7 @@ keybind = super+shift+j=resize_split:down,10
 
 # Equalize split sizes
 keybind = super+shift+e=equalize_splits
+
+macos-option-as-alt = true
+
+unfocused-split-opacity = 0.85
