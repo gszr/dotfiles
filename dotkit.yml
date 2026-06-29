@@ -51,6 +51,10 @@ map:
     as: copy
   bin/urxvt-perl:
     to: ~/.urxvt/ext
+  agents/AGENTS.md:
+    to: ~/.claude/CLAUDE.md
+  agents/AGENTS.md:
+    to: ~/.agents/AGENTS.md
 
 fetch:
 - url: https://github.com/gszr/dynamic-colors
