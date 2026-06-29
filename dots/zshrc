@@ -68,8 +68,9 @@ alias gf='git fetch'
 alias gr='git rebase'
 alias gR='git reset'
 alias grc='git rebase --continue'
-alias grm='git rebase -i master'
+alias grm='git rebase -i main'
 alias gl='git log --oneline'
+alias glm='git log --oneline main..'
 
 ## Vagrant
 alias vd='vagrant destroy'
@@ -113,6 +114,7 @@ zle -N history-beginning-search-backward-end history-search-end
 bindkey -v
 bindkey -a "k" history-beginning-search-backward
 bindkey -a "j" history-beginning-search-forward
+bindkey '^r' history-incremental-search-backward
 
 # autoload some functions
 for f ($(find $ZSH/functions/ -type f)); do
