@@ -47,18 +47,18 @@ function parse_args {
 function list_git_repos {
   local dir=$BASE_DIR
   echo "Scanning Git repositories under $dir"
-  for subdir in $(find $dir -type d -maxdepth $MAX_LEVEL); do
-    if [[ -d $subdir/.git ]]; then
+  for subdir in $(find "$dir" -type d -maxdepth "$MAX_LEVEL"); do
+    if [[ -d "$subdir/.git" ]]; then
       echo "-> $subdir"
       if [[ -n $VERBOSE ]]; then
         printf "  Remotes:\n"
-        git -C $subdir remote -v | while read line; do
+        git -C "$subdir" remote -v | while read line; do
           printf "    $line\n";
         done
         printf "  Branches:\n"
-        printf "    current: $(git -C $subdir rev-parse --abbrev-ref HEAD)\n"
+        printf "    current: $(git -C "$subdir" rev-parse --abbrev-ref HEAD)\n"
         printf "  Stash:\n"
-        local stash=$(git -C $subdir stash list)
+        local stash=$(git -C "$subdir" stash list)
         if [[ -z $stash ]]; then
           printf "    empty!\n"
         else
@@ -72,7 +72,7 @@ function list_git_repos {
 }
 
 
-parse_args $@
+parse_args "$@"
 shift $idx
 
 case $1 in

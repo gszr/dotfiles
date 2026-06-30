@@ -18,6 +18,6 @@ while getopts "d:f:h" OPTION; do
 done
 
 tar -c test -C ~/ .gnupg .ssh .password-store .electrum .electrum-ltc 2> /dev/null | \
-  gpg --cipher-algo AES256 --symmetric --output $OUTPUT_DIR/$OUTPUT_NAME
+  gpg --cipher-algo AES256 --symmetric --output "$OUTPUT_DIR/$OUTPUT_NAME"
 
-ls -l $OUTPUT_DIR/$OUTPUT_NAME
+ls -l "$OUTPUT_DIR/$OUTPUT_NAME"
