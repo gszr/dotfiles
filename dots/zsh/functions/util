@@ -1,6 +1,55 @@
 # vim: filetype=zsh
 # utilities
 
+# --- OS detection ---
+
+function os_name {
+  uname -s
+}
+
+function is_macos {
+  [[ "$(os_name)" == "Darwin" ]]
+}
+
+function is_linux {
+  [[ "$(os_name)" == "Linux" ]]
+}
+
+function is_netbsd {
+  [[ "$(os_name)" == "NetBSD" ]]
+}
+
+# --- Command availability ---
+
+function has_cmd {
+  hash "$1" &> /dev/null
+}
+
+# --- PATH helpers ---
+
+function path_prepend {
+  [[ -d "$1" ]] && export PATH="$1:$PATH"
+}
+
+function path_append {
+  [[ -d "$1" ]] && export PATH="$PATH:$1"
+}
+
+# --- Tool initialization ---
+# Usage: init_tool_env <tool_name> [extra_args...]
+# e.g. init_tool_env rbenv
+#      init_tool_env pyenv
+
+function init_tool_env {
+  local tool="$1"
+  shift
+  if has_cmd "$tool"; then
+    eval "$($tool init - $@)"
+  fi
+}
+
+# --- Retry ---
+
 # adapted from https://gist.github.com/felipou/6fbec22c4e04d3adfae5
 function retry {
   local sleep=30
@@ -29,7 +78,7 @@ function retry {
   while [[ $? -ne 0 ]] && [[ $cnt -lt $retry ]]; do
     echo "Command failed. Retrying in $sleep seconds..."
     sleep $sleep
-    cnt=$(($cnd + 1))
+    cnt=$(($cnt + 1))
     eval $cmd
   done
 

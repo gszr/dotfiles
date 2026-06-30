@@ -1,4 +1,8 @@
-hash rbenv &> /dev/null || echo "WARN: could not find rbenv"
+# vim: filetype=zsh
+# rbenv setup (uses shared helpers from util)
 
-eval "$(rbenv init - zsh)"
-export PATH="$HOME/.rbenv/bin:$PATH"
+path_prepend "$HOME/.rbenv/bin"
+
+if ! has_cmd rbenv; then
+  echo "WARN: could not find rbenv"
+fi

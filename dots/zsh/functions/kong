@@ -1,5 +1,5 @@
 # vim: filetype=zsh
-# some ssh-related functions
+# Kong-related functions
 
 # Kong paths
 export WORK="$CODE/"
@@ -49,44 +49,24 @@ function set_kong_env {
 }
 
 function kong_new_service {
-  local name=$1
-  local url=$2
-
-  if [[ -z $name ]]; then
-    name="s1"
-  fi
-
-  if [[ -z $url ]]; then
-    url="http://localhost:8080"
-  fi
+  local name="${1:-s1}"
+  local url="${2:-http://localhost:8080}"
 
   curl -s -XPOST localhost:8001/services --data name=$name --data url=$url
 }
 
 function kong_new_route {
-  local service_name=$1
-  local name=$2
-  local r_path=$3
-
-  if [[ -z $service_name ]]; then
-    service_name="s1"
-  fi
-
-  if [[ -z $name ]]; then
-    name="r1"
-  fi
-
-  if [[ -z $r_path ]]; then
-    r_path="/"
-  fi
+  local service_name="${1:-s1}"
+  local name="${2:-r1}"
+  local r_path="${3:-/}"
 
   curl -s -XPOST localhost:8001/services/$service_name/routes --data name=$name --data paths=$r_path
 }
 
 function kong_new_service_route {
-  local service_url=$1
-  local route_path=$1
+  local service_url="${1:-http://localhost:8080}"
+  local route_path="${2:-/}"
 
-  kong_new_service "s1" "http://localhost:8080" | jq .
-  kong_new_route "s1" "r1" "/" | jq .
+  kong_new_service "s1" "$service_url" | jq .
+  kong_new_route "s1" "r1" "$route_path" | jq .
 }
