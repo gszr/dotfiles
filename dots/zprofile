@@ -1,8 +1,11 @@
 # vim: filetype=zsh
 
+# source util early for helper functions (os detection, path helpers, etc.)
+source ${0:A:h}/zsh/functions/util 2>/dev/null || source $ZSH/functions/util 2>/dev/null
+
 export CODE=$HOME/code
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
+if is_macos; then
   export CODE=$HOME/Code
 fi
 
@@ -16,41 +19,42 @@ export EDITOR=vim
 export LESS="-RMIKC +Gg"
 export PAGER=less
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
+if is_macos; then
   eval $(/usr/libexec/path_helper)
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
-if [[ "$(uname -s)" == "NetBSD" ]]; then
-  export PATH="$PATH:/sbin:/usr/pkg/bin:/usr/pkg/sbin:/usr/X11R7/bin"
+if is_netbsd; then
+  path_append /sbin
+  path_append /usr/pkg/bin
+  path_append /usr/pkg/sbin
+  path_append /usr/X11R7/bin
 fi
 
-export PATH="$PATH:$HOME/bin:$HOME/.bin:$HOME/.local/bin"
+path_append "$HOME/bin"
+path_append "$HOME/.bin"
+path_append "$HOME/.local/bin"
 
 # Go
 export GOPATH="$CODE/go"
-export PATH="$PATH:$GOPATH/bin"
+path_append "$GOPATH/bin"
 
 # Rust
-export PATH="$PATH:$HOME/.cargo/bin"
+path_append "$HOME/.cargo/bin"
 
 # Ruby
-if which rbenv &> /dev/null; then
-  eval "$(rbenv init -)"
-fi
+init_tool_env rbenv
 
 # Python
-if which pyenv &> /dev/null; then
-  eval "$(pyenv init -)"
-fi
+init_tool_env pyenv
 
 # Luarocks
-export PATH="$PATH:/opt/luarocks/bin"
+path_append /opt/luarocks/bin
 
 export RESTY_PATH="/opt/openresty"
 
-export PATH="$PATH:$RESTY_PATH/bin"
-export PATH="$PATH:$RESTY_PATH/luajit/bin"
+path_append "$RESTY_PATH/bin"
+path_append "$RESTY_PATH/luajit/bin"
 
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=true

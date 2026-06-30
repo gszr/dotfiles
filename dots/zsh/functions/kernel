@@ -1,10 +1,11 @@
 # vim: filetype=zsh
 
 function kern-get-release {
+  make -s kernelrelease
 }
 
 function linux-kern-build {
-  release=$(make -s kernelrelease)
+  local release=$(kern-get-release)
 
   yes "" | make olddefconfig
   time=$(time make -j $(nproc --all))
@@ -15,7 +16,7 @@ function linux-kern-build {
 }
 
 function linux-kern-install {
-  release=$(make -s kernelrelease)
+  local release=$(kern-get-release)
 
   sudo make modules_install
   sudo install -m 0600 $(make -s image_name) /boot/vmlinuz-$release

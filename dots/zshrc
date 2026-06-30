@@ -33,18 +33,11 @@ setopt AUTO_PUSHD
 
 ## shell
 
-# MacOS
-if [[ "$(uname -s)" = "Darwin" ]]; then
+if is_macos; then
   alias ls='gls --color'
-fi
-
-# NetBSD - pkgsrc/misc/colorls
-if [[ "$(uname -s)" = "NetBSD" ]]; then
+elif is_netbsd; then
   alias ls='colorls -G'
-fi
-
-# Linux
-if [[ "$(uname -s)" = "Linux" ]]; then
+elif is_linux; then
   alias ls='ls --color'
 fi
 
@@ -116,20 +109,19 @@ bindkey -a "k" history-beginning-search-backward
 bindkey -a "j" history-beginning-search-forward
 bindkey '^r' history-incremental-search-backward
 
-# autoload some functions
-for f ($(find $ZSH/functions/ -type f)); do
+# autoload some functions (util first for shared helpers)
+source $ZSH/functions/util
+for f ($(find $ZSH/functions/ -type f -not -name util)); do
   source $f
 done
 
 PROMPT='$(ssh_get_info)%c%{$fg[blue]%} $ %{$reset_color%}'
 RPROMPT='$(zsh_get_rprompt)'
 
-if hash dircolors &> /dev/null; then
+if has_cmd dircolors; then
   eval `dircolors -b`
   zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-fi
-
-if hash gdircolors &> /dev/null; then
+elif has_cmd gdircolors; then
   eval `gdircolors -b`
   zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 fi
