@@ -6,7 +6,7 @@
 import re, sys
 import fontconfig
 
-if len(sys.argv) < 1:
+if len(sys.argv) < 2:
     print('''Usage: ''' + sys.argv[0] + '''CHARS [REGEX]
         Print the names of available fonts containing the code point(s) CHARS.
         If CHARS contains multiple characters, they must all be present.

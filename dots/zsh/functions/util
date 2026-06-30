@@ -29,7 +29,7 @@ function retry {
   while [[ $? -ne 0 ]] && [[ $cnt -lt $retry ]]; do
     echo "Command failed. Retrying in $sleep seconds..."
     sleep $sleep
-    cnt=$(($cnd + 1))
+    cnt=$(($cnt + 1))
     eval $cmd
   done
 

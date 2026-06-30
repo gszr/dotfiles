@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 OUTPUT_DIR="$HOME"
 OUTPUT_NAME="sec_$(date +%d_%m_%y).tar.gpg"
 
@@ -17,7 +19,7 @@ while getopts "d:f:h" OPTION; do
   esac
 done
 
-tar -c test -C ~/ .gnupg .ssh .password-store .electrum .electrum-ltc 2> /dev/null | \
-  gpg --cipher-algo AES256 --symmetric --output $OUTPUT_DIR/$OUTPUT_NAME
+tar -c -C ~/ .gnupg .ssh .password-store .electrum .electrum-ltc | \
+  gpg --cipher-algo AES256 --symmetric --output "$OUTPUT_DIR/$OUTPUT_NAME"
 
-ls -l $OUTPUT_DIR/$OUTPUT_NAME
+ls -l "$OUTPUT_DIR/$OUTPUT_NAME"

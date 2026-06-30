@@ -70,7 +70,7 @@ type=$2
 open_with=$3
 
 # make sure the tmpdir exists.
-mkdir -p $tmpdir
+mkdir -p "$tmpdir"
 
 # clean it out.  Remove this if you want the directory
 # to accumulate attachment files.
@@ -91,15 +91,15 @@ if [ $debug = "yes" ]; then
 fi
 
 # if the type is empty then try to figure it out.
-if [ -z $type ]; then
-    file  $1
-    type=`file -bi $1 | cut -d"/" -f2`
+if [ -z "$type" ]; then
+    file  "$1"
+    type=`file -bi "$1" | cut -d"/" -f2`
 fi
 
 # if the type is '-' then we don't want to mess with type.
 # Otherwise we are rebuilding the name.  Either from the
 # type that was passed in or from the type we discerned.
-if [ $type = "-" ]; then
+if [ "$type" = "-" ]; then
     newfile=$filename
 else
     newfile=$file.$type
@@ -109,7 +109,10 @@ newfile=$tmpdir/$newfile
 
 # Copy the file to our new spot so mutt can't delete it
 # before the app has a chance to view it.
-cp $1 $newfile
+if ! cp "$1" "$newfile"; then
+  echo "ERROR: failed to copy $1 to $newfile" >&2
+  exit 1
+fi
 
 if [ $debug = "yes" ]; then
     echo "File:" $file "TYPE:" $type >> $debug_file
@@ -120,8 +123,8 @@ fi
 # If there's no 'open with' then we can let preview do it's thing.
 # Otherwise we've been told what to use.  So do an open -a.
 
-if [ -z $open_with ]; then
-    xdg-open $newfile
+if [ -z "$open_with" ]; then
+    xdg-open "$newfile"
 else
-    xdg-open -a "$open_with" $newfile
+    xdg-open -a "$open_with" "$newfile"
 fi
