@@ -4,3 +4,5 @@
 !**/gnupg/gpg.conf
 !**/gnupg/gpg-agent.conf
 dotkit
+__pycache__/
+.coverage
