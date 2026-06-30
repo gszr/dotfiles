@@ -27,19 +27,19 @@ def get_latest_common_ancestor(ref1, ref2, repo_path = "."):
     return git_repo.merge_base(ref1, ref2)[0]
 
 def datetime_to_epoch(d):
-    return (pr.updated_at - datetime.datetime(1970, 1, 1)).total_seconds()
+    return (d - datetime.datetime(1970, 1, 1)).total_seconds()
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
+    if len(sys.argv) < 5:
         print("Usage: %s <origin_ref> <target_ref> <repo_dir> <github org/repo> [<github oauth2 token>]" % __file__)
-        sys.exit()
+        sys.exit(1)
 
     origin_ref = sys.argv[1]
     target_ref = sys.argv[2]
     repo_path = sys.argv[3]
     gh_repo = sys.argv[4]
-    gh_token = sys.argv[5] if sys.argv == 6 else None
+    gh_token = sys.argv[5] if len(sys.argv) == 6 else None
 
     latest_common_ancestor = get_latest_common_ancestor(origin_ref, target_ref,
                                                         repo_path = repo_path)
