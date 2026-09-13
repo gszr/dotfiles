@@ -34,11 +34,6 @@ export PATH="$PATH:$GOPATH/bin"
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
 
-# Ruby
-if which rbenv &> /dev/null; then
-  eval "$(rbenv init -)"
-fi
-
 # Python
 if which pyenv &> /dev/null; then
   eval "$(pyenv init -)"
