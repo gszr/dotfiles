@@ -52,8 +52,6 @@ map:
   bin/urxvt-perl:
     to: ~/.urxvt/ext
   agents/AGENTS.md:
-    to: ~/.claude/CLAUDE.md
-  agents/AGENTS.md:
     to: ~/.agents/AGENTS.md
 
 fetch:

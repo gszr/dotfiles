@@ -54,7 +54,12 @@
 [rebase]
 	autoSquash = true
 	autoStash = true
-	updateRefs = true
+	updateRefs = false
 [rerere]
 	enabled = true
 	autoupdate = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

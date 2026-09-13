@@ -5,6 +5,7 @@ zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu select
 zstyle ':completion:*' keep-prefix true
 
+
 export ZSH=$CONF/dots/zsh
 fpath=($ZSH/completions $fpath)
 
@@ -135,3 +136,22 @@ if hash gdircolors &> /dev/null; then
 fi
 
 export GPG_TTY=$(tty)
+
+alias http='/Users/gs/Code/httpie/venv/bin/http'
+alias https='/Users/gs/Code/httpie/venv/bin/https'
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/gs/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# claude-profile: manage Claude Code configuration profiles
+. "${XDG_DATA_HOME:-$HOME/.local/share}/claude-profile/claude-profile.sh"
+
+# Added by Devin
+export PATH="/Users/gs/.codeium/windsurf/bin:$PATH"
+
+# opencode
+export PATH=/Users/gs/.opencode/bin:$PATH
+eval "$(direnv hook zsh)"
+

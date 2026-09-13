@@ -3,3 +3,11 @@
 *~
 *.log
 .ackrc
+
+**/.claude/settings.local.json
+
+.httpie
+
+skills-lock.json
+
+**/.claude/.cc-writes/

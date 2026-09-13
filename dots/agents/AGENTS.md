@@ -39,11 +39,12 @@
 
 - Code is documentation - use clear naming, types, and docstrings
 
-## Commits
+## Git operations
 
 - Only commit when asked
 - Use Conventional Commits
-- Add yourself as coauthor
+- Always add yourself as coauthor
+- When asked to commit and open a PR, use PR template
 
 ## Testing
 
